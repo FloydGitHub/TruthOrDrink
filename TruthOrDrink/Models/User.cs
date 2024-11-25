@@ -13,6 +13,7 @@ namespace TruthOrDrink.Models
         [Required]
         public required string Username { get; set; }
         //public string Password { get; set; }
-        
+        public virtual ICollection<Player>? MyPlayers { get; set; }
+        public virtual ICollection<Question>? MadeQuestions { get; set; }
     }
 }

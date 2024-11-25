@@ -16,6 +16,8 @@ namespace TruthOrDrink.Models
         public int Level { get; set; }
         public bool CustomQuestion { get; set; }
         public bool PhotoQuestion { get; set; }
+        public virtual User? Creator { get; set; }
+        public virtual Category? Category { get; set; }
 
     }
 }

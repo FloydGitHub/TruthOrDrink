@@ -20,5 +20,9 @@ namespace TruthOrDrink.Models
         public bool LevelThreeAllowed { get; set; }
         public bool LevelFourAllowed { get; set; }
         public bool LevelFiveAllowed { get; set; }
+
+        public virtual ICollection<Player>? Players { get; set; }
+        public virtual ICollection<Category>? Categories { get; set; }
+        public virtual ICollection<Question>? QuestionsAsked { get; set; }
     }
 }

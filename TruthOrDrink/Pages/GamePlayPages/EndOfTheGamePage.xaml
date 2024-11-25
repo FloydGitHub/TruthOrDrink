@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TruthOrDrink.Pages.GamePlayPages.EndOfTheGamePage"
+             Title="EndOfTheGamePage">
+    <VerticalStackLayout>
+        <Label 
+            Text="Hier wordt de eindpagina van het spel weergeven"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+        <Button
+            x:Name="BackToMainMenuButton"
+            Text="Spel Beëindig"
+            VerticalOptions="Center"
+            HorizontalOptions="Center"
+            Margin="10"
+            Clicked="BackToMainMenuButton_Clicked">
+        </Button>
+    </VerticalStackLayout>
+</ContentPage>

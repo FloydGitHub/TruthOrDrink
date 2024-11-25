@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TruthOrDrink.Pages.GamePlayPages.QuestionPage"
+             Title="QuestionPage">
+    <VerticalStackLayout>
+        <Label 
+            Text="Hier komt de truth or drink vraag"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+        <Button
+            x:Name="TruthButton"
+            Text="Waarheid"
+            VerticalOptions="Center"
+            HorizontalOptions="Center"
+            Margin="10"
+            Clicked="TruthButton_Clicked">
+         </Button>
+        <Button
+            x:Name="TwistCardButton"
+            Text="Speel Twistcard"
+            VerticalOptions="Center"
+            HorizontalOptions="Center"
+            Margin="10"
+            Clicked="TwistCardButton_Clicked">
+        </Button>
+        <Button
+            x:Name="StandingsButton"
+            Text="Stand"
+            VerticalOptions="Center"
+            HorizontalOptions="Center"
+            Margin="10"
+            Clicked="StandingsButton_Clicked">
+        </Button>
+    </VerticalStackLayout>
+</ContentPage>

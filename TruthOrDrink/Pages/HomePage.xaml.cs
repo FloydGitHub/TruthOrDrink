@@ -14,4 +14,12 @@ public partial class HomePage : ContentPage
     {
         Navigation.PushAsync(new QuestionIndexPage());
     }
+    private void ContinuButton_Clicked(object sender, EventArgs e)
+    {
+        Navigation.PushAsync(new Pages.ContinuGamePages.OpenGamesIndexPage());
+    }
+    private void NewGameButton_Clicked(object sender, EventArgs e)
+    {
+        Navigation.PushAsync(new Pages.NewGamePages.SetRulesPage());
+    }
 }

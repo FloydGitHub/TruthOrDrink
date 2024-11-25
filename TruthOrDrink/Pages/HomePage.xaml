@@ -21,23 +21,26 @@
                 FontSize="25"/>
         </Border>
         <Button
-            x:Name="NewGame_Button"
+            x:Name="NewGameButton"
             Text="Nieuw spel"
             Margin="40"
             WidthRequest="150"
             HorizontalOptions="Center"
             BackgroundColor="Lavender"
-            TextColor="Black">
+            TextColor="Black"
+            Clicked="NewGameButton_Clicked">
         </Button>
 
         <Button
-            x:Name="Continu_Button"
-            Text="Ga verder"
+            x:Name="ContinuButton"
+            Text="Spel hervatten"
             Margin="40"
             WidthRequest="150"
             HorizontalOptions="Center"
             BackgroundColor="Lavender"
-            TextColor="Black">
+            TextColor="Black"
+            Clicked="ContinuButton_Clicked">
+
         </Button>
 
         <Button
@@ -50,6 +53,8 @@
             BackgroundColor="Lavender"
             TextColor="Black">
         </Button>
+        
+        
 
 
     </StackLayout>

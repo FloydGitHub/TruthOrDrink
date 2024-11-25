@@ -63,13 +63,22 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="HomePage.xaml">
+	  <MauiXaml Update="Pages\ContinuGamePages\OpenGamesIndexPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="QuestionCrudPages\QuestionCreatePage.xaml">
+	  <MauiXaml Update="Pages\HomePage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="QuestionCrudPages\QuestionIndexPage.xaml">
+	  <MauiXaml Update="Pages\NewGamePages\AddPlayerPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\NewGamePages\SetRulesPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\QuestionCrudPages\QuestionCreatePage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\QuestionCrudPages\QuestionIndexPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

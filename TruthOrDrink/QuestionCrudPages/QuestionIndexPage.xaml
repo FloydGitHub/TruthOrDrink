@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TruthOrDrink.QuestionIndexPage"
+             Title="QuestionIndexPage">
+    <VerticalStackLayout>
+        <Label 
+            Text="Pagina waar alle custom vragen van de gebruiker te vinden zijn om te beheren"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+        <Button
+            x:Name="CreateQuestionPageButton"
+            Text="Maak nieuwe vraag"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center"
+            Margin="10"
+            Clicked="CreateQuestionPageButton_Clicked">
+            
+        </Button>
+        <Button
+            x:Name="BackButton"
+            Text="Terug"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center"
+            Clicked="BackButton_Clicked">
+            
+        </Button>
+    </VerticalStackLayout>
+</ContentPage>

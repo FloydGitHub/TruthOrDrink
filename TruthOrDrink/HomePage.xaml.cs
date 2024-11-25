@@ -10,4 +10,8 @@ public partial class HomePage : ContentPage
         Welcome_Label.Text = WelcomeMessage;
 
     }
+    private void QuestionIndexButton_Clicked(object sender, EventArgs e)
+    {
+        Navigation.PushAsync(new QuestionIndexPage());
+    }
 }

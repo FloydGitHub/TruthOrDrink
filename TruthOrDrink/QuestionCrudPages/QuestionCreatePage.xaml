@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TruthOrDrink.QuestionCreatePage"
+             Title="QuestionCreatePage">
+    <VerticalStackLayout>
+        <Label 
+            Text="Pagina waar de property's van de vragen worden ingevoerd"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+
+        <Button
+            x:Name="BackButton"
+            Text="Terug"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center"
+            Clicked="BackButton_Clicked">
+        </Button>
+    </VerticalStackLayout>
+</ContentPage>

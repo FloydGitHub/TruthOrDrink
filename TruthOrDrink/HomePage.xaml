@@ -41,8 +41,9 @@
         </Button>
 
         <Button
-            x:Name="ControleQuastion_Button"
+            x:Name="QuestionIndexButton"
             Text="Vragen beheren"
+            Clicked="QuestionIndexButton_Clicked"
             Margin="40"
             WidthRequest="150"
             HorizontalOptions="Center"

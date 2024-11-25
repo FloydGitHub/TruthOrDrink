@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TruthOrDrink.HomePage"
+             Title="HomePage"
+             NavigationPage.BackButtonTitle="false">
+    <StackLayout>
+
+        <Border
+            x:Name="Login_Border"
+            BackgroundColor="Cyan"
+            Padding="20"
+            Margin="10"
+            StrokeShape="RoundRectangle 10">
+            <Label
+                x:Name="Welcome_Label"
+                Text="Welkom..."
+                TextColor="White"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                FontSize="25"/>
+        </Border>
+        <Button
+            x:Name="NewGame_Button"
+            Text="Nieuw spel"
+            Margin="40"
+            WidthRequest="150"
+            HorizontalOptions="Center"
+            BackgroundColor="Lavender"
+            TextColor="Black">
+        </Button>
+
+        <Button
+            x:Name="Continu_Button"
+            Text="Ga verder"
+            Margin="40"
+            WidthRequest="150"
+            HorizontalOptions="Center"
+            BackgroundColor="Lavender"
+            TextColor="Black">
+        </Button>
+
+        <Button
+            x:Name="ControleQuastion_Button"
+            Text="Vragen beheren"
+            Margin="40"
+            WidthRequest="150"
+            HorizontalOptions="Center"
+            BackgroundColor="Lavender"
+            TextColor="Black">
+        </Button>
+
+
+    </StackLayout>
+</ContentPage>

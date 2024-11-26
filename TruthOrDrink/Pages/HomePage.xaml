@@ -26,7 +26,6 @@
             Margin="40"
             WidthRequest="150"
             HorizontalOptions="Center"
-            BackgroundColor="Lavender"
             TextColor="Black"
             Clicked="NewGameButton_Clicked">
         </Button>
@@ -37,7 +36,6 @@
             Margin="40"
             WidthRequest="150"
             HorizontalOptions="Center"
-            BackgroundColor="Lavender"
             TextColor="Black"
             Clicked="ContinuButton_Clicked">
 
@@ -50,7 +48,6 @@
             Margin="40"
             WidthRequest="150"
             HorizontalOptions="Center"
-            BackgroundColor="Lavender"
             TextColor="Black">
         </Button>
         

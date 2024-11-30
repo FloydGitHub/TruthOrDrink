@@ -15,7 +15,6 @@
             <Label
                 x:Name="Welcome_Label"
                 Text="Welkom..."
-                TextColor="White"
                 HorizontalOptions="Center"
                 VerticalOptions="Center"
                 FontSize="25"/>

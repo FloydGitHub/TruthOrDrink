@@ -12,7 +12,6 @@
         StrokeShape="RoundRectangle 10">
             <Label
             Text="Welkom bij Truth or Drink! log nu in!"
-            TextColor="White"
             HorizontalOptions="Center"
             VerticalOptions="Center"
             FontSize="25"/>

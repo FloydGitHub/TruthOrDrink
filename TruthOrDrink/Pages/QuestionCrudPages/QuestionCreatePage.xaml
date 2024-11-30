@@ -9,6 +9,63 @@
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
 
+        <Label 
+            Text="Vul de vraag in."
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+        
+        <Entry
+            x:Name="QuestionEntry"
+            Placeholder=""
+            VerticalOptions="Center" 
+            HorizontalOptions="Center"
+            WidthRequest="200"
+            Margin="0,0,0,45"/>
+
+        <Label
+            Text="Kies een category voor de vraag."
+            VerticalOptions="Center"
+            HorizontalOptions="Center"/>
+        
+        <Picker x:Name="CategoryPicker" 
+                Margin="0,0,0,45"
+            WidthRequest="200">
+            <Picker.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>category 1</x:String>
+                    <x:String>category 2</x:String>
+                    <x:String>category 3</x:String>
+                    <x:String>category 4</x:String>
+                </x:Array>
+            </Picker.ItemsSource>
+        </Picker>
+
+        <Label
+            Text="Kies een level voor de vraag."
+            VerticalOptions="Center"
+            HorizontalOptions="Center"/>
+
+
+        <Picker x:Name="LevelPicker"
+            Margin="0,0,0,25"
+            WidthRequest="200">
+            <Picker.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>1</x:String>
+                    <x:String>2</x:String>
+                    <x:String>3</x:String>
+                    <x:String>4</x:String>
+                    <x:String>5</x:String>
+                </x:Array>
+            </Picker.ItemsSource>
+        </Picker>
+
+        <Button
+            x:Name="SaveButton"
+            Text="Opslaan"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center"
+            Margin="30"/>
         <Button
             x:Name="BackButton"
             Text="Terug"

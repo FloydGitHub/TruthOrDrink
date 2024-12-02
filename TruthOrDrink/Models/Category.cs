@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace TruthOrDrink.Models
 {
-    internal class Category
+    public class Category
     {
         public int Id { get; set; }
         [Required]

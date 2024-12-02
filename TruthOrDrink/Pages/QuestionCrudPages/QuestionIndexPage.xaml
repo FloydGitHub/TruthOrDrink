@@ -45,16 +45,18 @@
                                         TextColor="White" 
                                         BackgroundColor="Blue" 
                                         WidthRequest="120"
-                                        Clicked="EditQuestionButton_Clicked"/>
-                                
-                                <Button Text="Verwijder" 
+                                        Clicked="EditQuestionButton_Clicked"
+                                        CommandParameter="{Binding}"/>
+
+                                    <Button Text="Verwijder" 
                                         x:Name="DeleteButton"
                                         FontSize="Small" 
                                         TextColor="White" 
                                         BackgroundColor="Red" 
                                         WidthRequest="120"
-                                        Clicked="DeleteQuestionButton_Clicked"/>
-                            </HorizontalStackLayout>
+                                        Clicked="DeleteQuestionButton_Clicked"
+                                        CommandParameter="{Binding}" />
+                                </HorizontalStackLayout>
                         </VerticalStackLayout>
                     </Frame>
                 </DataTemplate>

@@ -49,12 +49,22 @@ public partial class QuestionIndexPage : ContentPage
     }
     private void DeleteQuestionButton_Clicked(object sender, EventArgs e)
     {
-        Navigation.PushAsync(new QuestionDeletePage());
+        var button = sender as Button;
+        if (button?.CommandParameter is Question selectedQuestion)
+        {
+            Navigation.PushAsync(new QuestionDeletePage(selectedQuestion));
+        }
     }
     private void EditQuestionButton_Clicked(object sender, EventArgs e)
     {
-        Navigation.PushAsync(new QuestionEditPage());
+        // Retrieve the question object from CommandParameter
+        var button = sender as Button;
+        if (button?.CommandParameter is Question selectedQuestion)
+        {
+            
+            Navigation.PushAsync(new QuestionEditPage(selectedQuestion));
+        }
     }
-    
+
 
 }

@@ -1,10 +1,16 @@
+using TruthOrDrink.Models;
+
 namespace TruthOrDrink.Pages.QuestionCrudPages;
 
 public partial class QuestionEditPage : ContentPage
 {
-    public QuestionEditPage()
+    private Question selectedQuestion;
+
+    public QuestionEditPage(Question question)
     {
         InitializeComponent();
+        selectedQuestion = question;
+        QuestionEntry.Text = selectedQuestion.Text;
     }
 
     public void BackButton_Clicked(object sender, EventArgs e)

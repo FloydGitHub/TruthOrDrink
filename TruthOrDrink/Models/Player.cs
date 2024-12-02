@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace TruthOrDrink.Models
 {
-    internal class Player
+    public class Player
     {
         public int Id { get; set; }
         public int TwistCard { get; set; }

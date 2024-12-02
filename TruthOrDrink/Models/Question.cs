@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace TruthOrDrink.Models
 {
-    internal class Question
+    public class Question
     {
         public int Id { get; set; }
         [Required]
@@ -16,7 +16,9 @@ namespace TruthOrDrink.Models
         public int Level { get; set; }
         public bool CustomQuestion { get; set; }
         public bool PhotoQuestion { get; set; }
+        public int CreatorId { get; set; }
         public virtual User? Creator { get; set; }
+        public int CategoryId { get; set; }
         public virtual Category? Category { get; set; }
     }
 }

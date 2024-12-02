@@ -3,11 +3,15 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TruthOrDrink.QuestionIndexPage"
              Title="QuestionIndexPage">
+    <ScrollView>
     <VerticalStackLayout>
+        
         <Label 
-            Text="Pagina waar alle custom vragen van de gebruiker te vinden zijn om te beheren"
+            Text="Mijn vragen:"
+            FontSize="Medium"
             VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+            HorizontalOptions="Center" 
+            Margin="5"/>
         <Button
             x:Name="CreateQuestionPageButton"
             Text="Maak nieuwe vraag"
@@ -15,15 +19,55 @@
             HorizontalOptions="Center"
             Margin="10"
             Clicked="CreateQuestionPageButton_Clicked">
-            
         </Button>
+
+        <CollectionView x:Name="QuestionsCollectionView">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+
+                    <Frame BackgroundColor="#D9D9D9" Margin="15" CornerRadius="10" WidthRequest="300">
+                        <VerticalStackLayout Spacing="10">
+                            <!-- Labels -->
+                            <Label Text="Vraag:" FontAttributes="Bold" FontSize="Small" TextColor="Gray" />
+                            <Label Text="{Binding Text}" FontSize="Small" TextColor="Black" />
+
+                            <Label Text="Level:" FontAttributes="Bold" FontSize="Small" TextColor="Gray" />
+                            <Label Text="{Binding Level}" FontSize="Small" TextColor="Black" />
+
+                            <Label Text="Category:" FontAttributes="Bold" FontSize="Small" TextColor="Gray" />
+                            <Label Text="{Binding Category.Name}" FontSize="Small" TextColor="Black" />
+
+                            <!-- Buttons -->
+                            <HorizontalStackLayout Spacing="20" HorizontalOptions="Center">
+                                <Button Text="Pas aan"
+                                        x:Name="EditButton"
+                                        FontSize="Small" 
+                                        TextColor="White" 
+                                        BackgroundColor="Blue" 
+                                        WidthRequest="120"/>
+                                
+                                <Button Text="Verwijder" 
+                                        x:Name="DeleteButton"
+                                        FontSize="Small" 
+                                        TextColor="White" 
+                                        BackgroundColor="Red" 
+                                        WidthRequest="120"/>
+                            </HorizontalStackLayout>
+                        </VerticalStackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
         <Button
             x:Name="BackButton"
             Text="Terug"
+            Margin="10"
             VerticalOptions="Center" 
             HorizontalOptions="Center"
             Clicked="BackButton_Clicked">
             
         </Button>
     </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

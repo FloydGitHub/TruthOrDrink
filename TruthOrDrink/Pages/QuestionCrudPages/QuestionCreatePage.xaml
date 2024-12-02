@@ -65,6 +65,7 @@
             Text="Opslaan"
             VerticalOptions="Center" 
             HorizontalOptions="Center"
+            Clicked="SaveButton_Clicked"
             Margin="30"/>
         <Button
             x:Name="BackButton"

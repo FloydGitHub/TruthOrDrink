@@ -18,6 +18,5 @@ namespace TruthOrDrink.Models
         public bool PhotoQuestion { get; set; }
         public virtual User? Creator { get; set; }
         public virtual Category? Category { get; set; }
-
     }
 }

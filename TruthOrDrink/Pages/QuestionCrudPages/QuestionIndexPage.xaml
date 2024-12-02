@@ -51,7 +51,8 @@
                                         FontSize="Small" 
                                         TextColor="White" 
                                         BackgroundColor="Red" 
-                                        WidthRequest="120"/>
+                                        WidthRequest="120"
+                                        Clicked="DeleteQuestionButton_Clicked"/>
                             </HorizontalStackLayout>
                         </VerticalStackLayout>
                     </Frame>

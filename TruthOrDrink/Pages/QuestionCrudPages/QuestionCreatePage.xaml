@@ -5,9 +5,11 @@
              Title="QuestionCreatePage">
     <VerticalStackLayout>
         <Label 
-            Text="Pagina waar de property's van de vragen worden ingevoerd"
+            Text="Maak een vraag:"
+            FontSize="Medium"
             VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+            HorizontalOptions="Center" 
+            Margin="0,5,0,20"/>
 
         <Label 
             Text="Vul de vraag in."

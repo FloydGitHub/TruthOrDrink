@@ -1,13 +1,14 @@
 using TruthOrDrink.Models;
+using TruthOrDrink.Pages.QuestionCrudPages;
 using static System.Net.Mime.MediaTypeNames;
 
 namespace TruthOrDrink;
 
 public partial class QuestionIndexPage : ContentPage
 {
-	public QuestionIndexPage()
-	{
-		InitializeComponent();
+    public QuestionIndexPage()
+    {
+        InitializeComponent();
         List<Question> questions = new List<Question>();
         Category category = new Category()
         {
@@ -38,7 +39,7 @@ public partial class QuestionIndexPage : ContentPage
         questions.Add(question2);
         QuestionsCollectionView.ItemsSource = questions;
     }
-    private void BackButton_Clicked (object sender, EventArgs e)
+    private void BackButton_Clicked(object sender, EventArgs e)
     {
         Navigation.PopAsync();
     }
@@ -46,4 +47,10 @@ public partial class QuestionIndexPage : ContentPage
     {
         Navigation.PushAsync(new QuestionCreatePage());
     }
+    private void DeleteQuestionButton_Clicked(object sender, EventArgs e)
+    {
+        Navigation.PushAsync(new QuestionDeletePage());
+    }
+
+
 }

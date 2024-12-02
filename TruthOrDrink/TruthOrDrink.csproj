@@ -96,6 +96,9 @@
 	  <MauiXaml Update="Pages\QuestionCrudPages\QuestionDeletePage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Pages\QuestionCrudPages\QuestionEditPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Pages\QuestionCrudPages\QuestionIndexPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

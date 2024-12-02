@@ -44,7 +44,8 @@
                                         FontSize="Small" 
                                         TextColor="White" 
                                         BackgroundColor="Blue" 
-                                        WidthRequest="120"/>
+                                        WidthRequest="120"
+                                        Clicked="EditQuestionButton_Clicked"/>
                                 
                                 <Button Text="Verwijder" 
                                         x:Name="DeleteButton"

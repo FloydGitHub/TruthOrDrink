@@ -51,6 +51,10 @@ public partial class QuestionIndexPage : ContentPage
     {
         Navigation.PushAsync(new QuestionDeletePage());
     }
-
+    private void EditQuestionButton_Clicked(object sender, EventArgs e)
+    {
+        Navigation.PushAsync(new QuestionEditPage());
+    }
+    
 
 }

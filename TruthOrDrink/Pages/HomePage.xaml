@@ -9,6 +9,8 @@
         <Border
             x:Name="Login_Border"
             BackgroundColor="Cyan"
+            
+            
             Padding="20"
             Margin="10"
             StrokeShape="RoundRectangle 10">

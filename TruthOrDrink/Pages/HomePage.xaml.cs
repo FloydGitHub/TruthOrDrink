@@ -22,4 +22,10 @@ public partial class HomePage : ContentPage
     {
         Navigation.PushAsync(new Pages.NewGamePages.SetRulesPage());
     }
+
+    private async void OnKaartspelButtonClicked(object sender, EventArgs e)
+    {
+        // Openen van de externe URL
+        await Launcher.OpenAsync("https://www.bol.com/nl/nl/p/truth-or-drink-guilty-pleasures-nederlandstalig-kaartspel/9300000182707032/");
+    }
 }

@@ -24,7 +24,7 @@
         <Button
             x:Name="NewGameButton"
             Text="Nieuw spel"
-            Margin="40"
+            Margin="25"
             WidthRequest="150"
             HorizontalOptions="Center"
             TextColor="Black"
@@ -34,7 +34,7 @@
         <Button
             x:Name="ContinuButton"
             Text="Spel hervatten"
-            Margin="40"
+            Margin="25"
             WidthRequest="150"
             HorizontalOptions="Center"
             TextColor="Black"
@@ -46,13 +46,25 @@
             x:Name="QuestionIndexButton"
             Text="Vragen beheren"
             Clicked="QuestionIndexButton_Clicked"
-            Margin="40"
+            Margin="25"
             WidthRequest="150"
             HorizontalOptions="Center"
             TextColor="Black">
         </Button>
-        
-        
+
+        <ImageButton
+        x:Name="Kaartspelbutton"
+        Source="Kaartspel.jpg"
+        HeightRequest="100"
+        Clicked="OnKaartspelButtonClicked"
+        BackgroundColor="#C9ADAD"/>
+        <Label
+            Text="Klik op de afbeelding om ons kaartspel te kopen"
+            VerticalOptions="Center"
+            HorizontalOptions="Center"
+            TextColor="DarkBlue"/>
+
+
 
 
     </StackLayout>

@@ -414,7 +414,7 @@
 
     <Style TargetType="NavigationPage">
         <Setter Property="BarBackgroundColor" Value="Green" />
-        <Setter Property="BarTextColor" Value="{AppThemeBinding Light={StaticResource Gray200}, Dark={StaticResource White}}" />
+        <Setter Property="BarTextColor" Value="White"/>
         <Setter Property="IconColor" Value="{AppThemeBinding Light={StaticResource Gray200}, Dark={StaticResource White}}" />
     </Style>
 

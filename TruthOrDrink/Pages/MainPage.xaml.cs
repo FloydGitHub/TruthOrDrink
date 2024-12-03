@@ -7,6 +7,8 @@
         public MainPage()
         {
             InitializeComponent();
+            StatusBar.StatusBarColor = Colors.Red;
+            StatusBar.StatusBarStyle = CommunityToolkit.Maui.Core.StatusBarStyle.LightContent;
         }
 
         private void LoginButton_Clicked(object sender, EventArgs e)

@@ -10,6 +10,7 @@ namespace TruthOrDrink.Models
     public class Player
     {
         public int Id { get; set; }
+        public required string Name { get; set; }
         public int TwistCard { get; set; }
         public int Answers { get; set; }
         public int Drinks { get; set; }

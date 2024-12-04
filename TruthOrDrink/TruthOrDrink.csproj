@@ -40,11 +40,10 @@
 
 	<ItemGroup>
 		<!-- App Icon -->
-		<MauiIcon Include="Resources\AppIcon\truthordrinklogo.svg" />
+		<MauiIcon Include="Resources\AppIcon\truthordrinklogo.svg" BaseSize="474,474" />
 
 		<!-- Splash Screen -->
-		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="128,128" />
-
+		<MauiSplashScreen Include="Resources\Splash\splashscreen.svg" color="#FFFFFF"/>
 		<!-- Images -->
 		<MauiImage Include="Resources\Images\*" />
 		<MauiImage Update="Resources\Images\dotnet_bot.png" Resize="True" BaseSize="300,185" />
@@ -58,6 +57,11 @@
 
 	<ItemGroup>
 	  <None Remove="Resources\AppIcon\truthordrinklogo.svg" />
+	  <None Remove="Resources\Splash\splashscreen.svg" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiSplashScreen Include="Resources\Splash\splashscreen.svg" />
 	</ItemGroup>
 
 	<ItemGroup>

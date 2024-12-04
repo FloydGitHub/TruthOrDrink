@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TruthOrDrink.Pages.ContinuGamePages.OpenGamesIndexPage"
-             Title="OpenGamesIndexPage">
+             Title="OpenGamesIndexPage"
+             NavigationPage.HasNavigationBar="False">
     <VerticalStackLayout>
         <Label 
             Text="Op deze pagina zijn alle openstaande games te vinden om verder te spelen te verwijderen"

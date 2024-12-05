@@ -11,6 +11,7 @@ public partial class AddPlayerPage : ContentPage
 
 	private void StartGameButton_Clicked(object sender, EventArgs e)
     {
-        Navigation.PushAsync(new QuestionPage());
+		//Moet nog toegepast worden
+        //Navigation.PushAsync(new QuestionPage());
     }
 }

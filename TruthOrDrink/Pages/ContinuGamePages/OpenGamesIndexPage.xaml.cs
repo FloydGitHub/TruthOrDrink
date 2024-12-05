@@ -1,4 +1,5 @@
 using TruthOrDrink.Models;
+using TruthOrDrink.Pages.GamePlayPages;
 
 namespace TruthOrDrink.Pages.ContinuGamePages;
 
@@ -17,11 +18,17 @@ public partial class OpenGamesIndexPage : ContentPage
         {
             Id = 1,
             Name = "Player 1",
+            TwistCard = 3,
+            Drinks = 1,
+            Answers = 0,
         };
         Player player2 = new Player()
         {
             Id = 2,
             Name = "Player 2",
+            TwistCard = 3,
+            Drinks = 0,
+            Answers = 1,
         };
         Game game = new Game()
         {
@@ -80,19 +87,10 @@ public partial class OpenGamesIndexPage : ContentPage
 
             //
             List<Question> allQuestions = new List<Question> { question, question2 };
-            //filter
-            allQuestions = allQuestions.Where(q =>
-                (
-                    (q.Level == 1 && selectedGame.LevelOneAllowed) ||
-                    (q.Level == 2 && selectedGame.LevelTwoAllowed) ||
-                    (q.Level == 3 && selectedGame.LevelThreeAllowed) ||
-                    (q.Level == 4 && selectedGame.LevelFourAllowed) ||
-                    (q.Level == 5 && selectedGame.LevelFiveAllowed)
-                )
-                && selectedGame.Categories.Any(c => c.Id == q.CategoryId) // Check if the question's category is in the allowed categories list
-            ).ToList();
+            //filter m oet nog toegepast worden
+
             selectedGame.QuestionsToAsked = allQuestions;
-            return;
+            Navigation.PushAsync(new QuestionPage(selectedGame));
         }
     }
 

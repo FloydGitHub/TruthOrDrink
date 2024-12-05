@@ -5,24 +5,53 @@
              Title="QuestionPage"
              NavigationPage.HasNavigationBar="False">
     <VerticalStackLayout>
-        <Label 
-            Text="Hier komt de truth or drink vraag"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-        <Button
-            x:Name="TruthButton"
-            Text="Waarheid"
-            VerticalOptions="Center"
+        <Border
+            x:Name="Question_Border"
+            BackgroundColor="#A45DF0"       
+            Padding="20"
+            Margin="20"
+            StrokeShape="RoundRectangle 10">
+            <Label
+                x:Name="QuestionLabel"
+                Text="Vraag..."
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                FontSize="18"/>
+        </Border>
+        <HorizontalStackLayout
             HorizontalOptions="Center"
-            Margin="10"
-            Clicked="TruthButton_Clicked">
-         </Button>
+            Margin="40">
+            <Button
+                x:Name="TruthButton"
+                Text="Waarheid"
+                VerticalOptions="Center"
+                HorizontalOptions="Center"
+                Margin="5"
+                WidthRequest="140"
+                Clicked="TruthButton_Clicked">
+             </Button>
+            <Button
+                x:Name="DrinkButton"
+                Text="Drink"
+                VerticalOptions="Center"
+                HorizontalOptions="Center"
+                Margin="5"
+                WidthRequest="140"
+                Clicked="DrinkButton_Clicked">
+            </Button>
+        </HorizontalStackLayout>
+        <Label
+                x:Name="TwistCardLabel"
+                Text="Aantal twistcards over: ..."
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                FontSize="18"/>
         <Button
             x:Name="TwistCardButton"
             Text="Speel Twistcard"
             VerticalOptions="Center"
             HorizontalOptions="Center"
-            Margin="10"
+            Margin="30"
             Clicked="TwistCardButton_Clicked">
         </Button>
         <Button
@@ -30,7 +59,7 @@
             Text="Stand"
             VerticalOptions="Center"
             HorizontalOptions="Center"
-            Margin="10"
+            Margin="60"
             Clicked="StandingsButton_Clicked">
         </Button>
     </VerticalStackLayout>

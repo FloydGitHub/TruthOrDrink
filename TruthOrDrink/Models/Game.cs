@@ -25,13 +25,38 @@ namespace TruthOrDrink.Models
         public virtual ICollection<Player>? Players { get; set; }
         public virtual ICollection<Category>? Categories { get; set; }
         public virtual ICollection<Question>? QuestionsToAsked { get; set; }
-
         public string PlayerNames
         {
             get
             {
                 return string.Join(" + ", Players.Select(p => p.Name));
             }
+        }
+
+
+
+
+        public Question GetNextQuestion()
+        {
+            Random rng = new Random();
+            var randomQuestion = QuestionsToAsked.Any() ? QuestionsToAsked.OrderBy(x => rng.Next()).FirstOrDefault() : null;
+            if (randomQuestion != null)
+            {
+                QuestionsToAsked.Remove(randomQuestion);
+            }
+            return randomQuestion;
+
+        }
+        public Player GetPlayerToAskQuestion()
+        {
+            Player? playerToAsk = Players.OrderBy(player => player.Drinks + player.Answers)
+                .FirstOrDefault();
+            return playerToAsk;
+        }
+        public void UpdatePlayerScore(Player playerToUpdate)
+        {
+            Players.Remove(Players.FirstOrDefault(p => p.Id == playerToUpdate.Id));
+            Players.Add(playerToUpdate);
         }
     }
 }

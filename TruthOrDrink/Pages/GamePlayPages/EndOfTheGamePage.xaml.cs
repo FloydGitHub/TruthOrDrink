@@ -1,10 +1,14 @@
+using TruthOrDrink.Models;
+
 namespace TruthOrDrink.Pages.GamePlayPages;
 
 public partial class EndOfTheGamePage : ContentPage
 {
-    public EndOfTheGamePage()
+    public EndOfTheGamePage(string endOfTheGameMessage, Game game)
     {
         InitializeComponent();
+        EndGame_Label.Text = endOfTheGameMessage;
+        BindingContext = game;
     }
     private async void BackToMainMenuButton_Clicked(object sender, EventArgs e)
     {

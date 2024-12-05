@@ -4,18 +4,59 @@
              x:Class="TruthOrDrink.Pages.GamePlayPages.EndOfTheGamePage"
              Title="EndOfTheGamePage"
              NavigationPage.HasNavigationBar="False">
-    <VerticalStackLayout>
-        <Label 
-            Text="Hier wordt de eindpagina van het spel weergeven"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-        <Button
-            x:Name="BackToMainMenuButton"
-            Text="Spel Beëindig"
-            VerticalOptions="Center"
-            HorizontalOptions="Center"
-            Margin="10"
-            Clicked="BackToMainMenuButton_Clicked">
-        </Button>
-    </VerticalStackLayout>
+    <ScrollView>
+        
+        <VerticalStackLayout>
+            <Border
+                x:Name="EndGame_Border"
+                BackgroundColor="#A45DF0"
+                Padding="20"
+                Margin="10"
+                StrokeShape="RoundRectangle 10">
+                <Label
+                    x:Name="EndGame_Label"
+                    Text="Het spel is afgelopen..."
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    FontSize="20"/>
+            </Border>
+            <Button
+                x:Name="BackToMainMenuButton"
+                Text="Spel Beëindigrn"
+                VerticalOptions="Center"
+                HorizontalOptions="Center"
+                Margin="10"
+                Clicked="BackToMainMenuButton_Clicked">
+            </Button>
+            <Label
+                Text="Eindstand:"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    FontSize="20"/>
+            <CollectionView ItemsSource="{Binding Players}"
+                                Margin="20,20,20,0"
+    >
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <VerticalStackLayout Margin="0,0,0,20" Padding="10"
+                                                 BackgroundColor="Purple"
+                                                 Spacing="10">
+                            <Label Text="{Binding Name}"
+                                       FontSize="14"
+                                       TextColor="White" />
+                            <Label Text="{Binding Answers, StringFormat='antwoorden: {0}'}"
+                                       FontSize="14"
+                                       TextColor="White" />
+                            <Label Text="{Binding Drinks, StringFormat='shots: {0}'}"
+                                       FontSize="14"
+                                       TextColor="White" />
+                            <Label Text="{Binding TwistCard, StringFormat='Doorschuivers over: {0}'}"
+                                       FontSize="14"
+                                       TextColor="White" />
+                        </VerticalStackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

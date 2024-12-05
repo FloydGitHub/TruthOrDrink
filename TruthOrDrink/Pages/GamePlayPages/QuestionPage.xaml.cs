@@ -14,7 +14,7 @@ public partial class QuestionPage : ContentPage
         questionToAsk = currentGame.GetNextQuestion();
         if (questionToAsk == null)
         {
-            Navigation.PushAsync(new EndOfTheGamePage());
+            Navigation.PushAsync(new EndOfTheGamePage("Het spel is afgelopen omadat alle vragen gesteld zijn.", currentGame));
         }
         else
         {

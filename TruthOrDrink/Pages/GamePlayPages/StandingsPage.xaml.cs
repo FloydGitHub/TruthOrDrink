@@ -17,7 +17,7 @@ public partial class StandingsPage : ContentPage
     }
     private void EndGameButton_Clicked(object sender, EventArgs e)
     {
-        Navigation.PushAsync(new EndOfTheGamePage());
+        Navigation.PushAsync(new EndOfTheGamePage("Het spel is afgelopen omadat het handmatig is beëindigd.", CurrentGame));
     }
     private void EditRulesButton_Clicked(object sender, EventArgs e)
     {

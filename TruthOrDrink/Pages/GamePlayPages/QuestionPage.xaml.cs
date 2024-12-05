@@ -19,7 +19,7 @@ public partial class QuestionPage : ContentPage
         else
         {
             playerToAsk = game.GetPlayerToAskQuestion();
-            QuestionLabel.Text = $"Vraag voor {playerToAsk.Name}, {questionToAsk.Text}";
+            QuestionLabel.Text = $"Vraag voor {playerToAsk.Name},\n\n{questionToAsk.Text}.";
             TwistCardLabel.Text = $"Doorschuivers over: {playerToAsk.TwistCard}";
         }
 
@@ -43,6 +43,6 @@ public partial class QuestionPage : ContentPage
     }
     private void StandingsButton_Clicked(object sender, EventArgs e)
     {
-        Navigation.PushAsync(new StandingsPage());
+        Navigation.PushAsync(new StandingsPage(currentGame));
     }
 }

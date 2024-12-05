@@ -10,6 +10,7 @@
             BackgroundColor="#A45DF0"       
             Padding="20"
             Margin="20"
+            WidthRequest="300"
             StrokeShape="RoundRectangle 10">
             <Label
                 x:Name="QuestionLabel"

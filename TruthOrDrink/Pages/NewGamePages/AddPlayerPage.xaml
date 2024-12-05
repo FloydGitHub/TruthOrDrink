@@ -11,18 +11,12 @@
             HorizontalOptions="Center" />
         <Button
             x:Name="StartGameButton"
-            Text="Verder"
+            Text="Start spel"
             VerticalOptions="Center"
             HorizontalOptions="Center"
             Margin="10"
             Clicked="StartGameButton_Clicked">
         </Button>
-        <Button
-            x:Name="BackButton"
-            Text="Terug"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center"
-            Clicked="BackButton_Clicked">
-        </Button>
+
     </VerticalStackLayout>
 </ContentPage>

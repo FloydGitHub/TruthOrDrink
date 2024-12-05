@@ -8,10 +8,6 @@ public partial class AddPlayerPage : ContentPage
 	{
 		InitializeComponent();
 	}
-	private void BackButton_Clicked(object sender, EventArgs e)
-    {
-        Navigation.PopAsync();
-    }
 
 	private void StartGameButton_Clicked(object sender, EventArgs e)
     {

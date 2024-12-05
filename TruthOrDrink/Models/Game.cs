@@ -24,6 +24,14 @@ namespace TruthOrDrink.Models
 
         public virtual ICollection<Player>? Players { get; set; }
         public virtual ICollection<Category>? Categories { get; set; }
-        public virtual ICollection<Question>? QuestionsAsked { get; set; }
+        public virtual ICollection<Question>? QuestionsToAsked { get; set; }
+
+        public string PlayerNames
+        {
+            get
+            {
+                return string.Join(" + ", Players.Select(p => p.Name));
+            }
+        }
     }
 }

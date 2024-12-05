@@ -4,17 +4,64 @@
              x:Class="TruthOrDrink.Pages.ContinuGamePages.OpenGamesIndexPage"
              Title="OpenGamesIndexPage"
              NavigationPage.HasNavigationBar="False">
-    <VerticalStackLayout>
-        <Label 
-            Text="Op deze pagina zijn alle openstaande games te vinden om verder te spelen te verwijderen"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-        <Button
-            x:Name="BackButton"
-            Text="Terug"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center"
-            Clicked="BackButton_Clicked">
-        </Button>
-    </VerticalStackLayout>
+    <ScrollView>
+        <VerticalStackLayout>
+            <Label 
+                Text="Alle opestaande games: "
+                FontSize="Medium"
+                Margin="5"
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" />
+
+            <CollectionView x:Name="GamesCollectionView">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+
+                        <Frame BackgroundColor="#D9D9D9" Margin="15" CornerRadius="10" WidthRequest="320">
+                            <VerticalStackLayout Spacing="10">
+                                <!-- Labels -->
+                                <Label Text="Startmoment:" FontAttributes="Bold" FontSize="Small" TextColor="Gray" />
+                                <Label Text="{Binding StartingMoment}" FontSize="Small" TextColor="Black" />
+
+                                <Label Text="Players:" FontAttributes="Bold" FontSize="Small" TextColor="Gray" />
+                                <Label Text="{Binding PlayerNames}" FontSize="Small" TextColor="Black" />
+
+                                <!-- Buttons -->
+                                <HorizontalStackLayout Spacing="20" HorizontalOptions="Center">
+                                    <Button Text="Ga verder"
+                                        x:Name="ContinuButton"
+                                        FontSize="Small" 
+                                        TextColor="White" 
+                                        BackgroundColor="Blue" 
+                                        WidthRequest="120"
+                                        Clicked="ContinuButton_Clicked"
+                                        CommandParameter="{Binding}"/>
+
+                                    <Button Text="Verwijder" 
+                                        x:Name="DeleteButton"
+                                        FontSize="Small" 
+                                        TextColor="White" 
+                                        BackgroundColor="Red" 
+                                        WidthRequest="120"
+                                        Clicked="DeleteButton_Clicked"
+                                        CommandParameter="{Binding}" />
+                                </HorizontalStackLayout>
+                            </VerticalStackLayout>
+                        </Frame>
+
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            
+            
+            <Button
+                x:Name="BackButton"
+                Text="Terug"
+                Margin="5"
+                VerticalOptions="Center" 
+                HorizontalOptions="Center"
+                Clicked="BackButton_Clicked">
+            </Button>
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

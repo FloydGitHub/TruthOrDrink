@@ -9,14 +9,7 @@
             Text="In deze pagina kan je de vragen filteren"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
-        <Button
-            x:Name="AddPlayersPageButton"
-            Text="Verder"
-            VerticalOptions="Center"
-            HorizontalOptions="Center"
-            Margin="10"
-            Clicked="AddPlayersPageButton_Clicked">
-        </Button>
+
         <Button
             x:Name="BackButton"
             Text="Terug"

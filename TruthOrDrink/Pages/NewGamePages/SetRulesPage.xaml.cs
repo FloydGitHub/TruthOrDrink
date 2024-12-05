@@ -10,8 +10,4 @@ public partial class SetRulesPage : ContentPage
     {
         Navigation.PopAsync();
     }
-	private void AddPlayersPageButton_Clicked(object sender, EventArgs e)
-    {
-        Navigation.PushAsync(new AddPlayerPage());
-    }
 }

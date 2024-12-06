@@ -5,10 +5,36 @@
              Title="TwistCardPage"
              NavigationPage.HasNavigationBar="False">
     <VerticalStackLayout>
-        <Label 
-            Text="Hier worden de twistcard opties weergeven"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+
+        <Border
+            x:Name="TwistCard_Border"
+            BackgroundColor="Purple"
+            Padding="20"
+            Margin="10"
+            StrokeShape="RoundRectangle 10">
+            <Label
+                x:Name="Welcome_Label"
+                Text="Kies een speler om de vraag aan door te geven"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                FontSize="25"/>
+        </Border>
+
+        <CollectionView x:Name="PlayersCollectionView"
+                            ItemsSource="{Binding PlayersToRedirect}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame BackgroundColor="#C9ADAD"  CornerRadius="10" BorderColor="#C9ADAD">
+                        <Button Text="{Binding Name}" 
+                                    TextColor="Black" 
+                                    CommandParameter="{Binding}" 
+                                    Clicked="PlayerButton_Clicked"
+                                    Margin="40"/>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
         <Button
             x:Name="BackButton"
             Text="Terug"

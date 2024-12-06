@@ -23,4 +23,8 @@ public partial class StandingsPage : ContentPage
     {
         Navigation.PushAsync(new EditRulesPage());
     }
+    private void SaveGameButton_Clicked(object sender, EventArgs e)
+    {
+        Navigation.PushAsync(new HomePage("Terug"));
+    }
 }

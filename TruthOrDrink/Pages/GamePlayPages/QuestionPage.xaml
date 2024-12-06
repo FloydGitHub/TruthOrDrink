@@ -43,13 +43,13 @@
         </HorizontalStackLayout>
         <Label
                 x:Name="TwistCardLabel"
-                Text="Aantal twistcards over: ..."
+                Text="Aantal Doorschuivers over: ..."
                 HorizontalOptions="Center"
                 VerticalOptions="Center"
                 FontSize="18"/>
         <Button
             x:Name="TwistCardButton"
-            Text="Speel Twistcard"
+            Text="Speel Doorschuiver"
             VerticalOptions="Center"
             HorizontalOptions="Center"
             Margin="30"

@@ -18,7 +18,7 @@ public partial class OpenGamesIndexPage : ContentPage
         {
             Id = 1,
             Name = "Player 1",
-            TwistCard = 3,
+            TwistCard = 1,
             Drinks = 1,
             Answers = 0,
         };

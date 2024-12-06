@@ -76,7 +76,8 @@
                 VerticalOptions="Center"
                 Margin="10"
                 WidthRequest="120"
-                HorizontalOptions="Center">
+                HorizontalOptions="Center"
+                Clicked="SaveGameButton_Clicked">
                 </Button>
 
             </HorizontalStackLayout>

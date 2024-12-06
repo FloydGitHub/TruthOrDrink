@@ -63,7 +63,7 @@
             HorizontalOptions="Center">
                 <Button
                 x:Name="EndGameButton"
-                Text="Spel Beëindig"
+                Text="Beëindig spel"
                 VerticalOptions="Center"
                 Margin="10"
                 WidthRequest="120"

@@ -45,4 +45,9 @@ public partial class QuestionPage : ContentPage
     {
         Navigation.PushAsync(new StandingsPage(currentGame));
     }
+    protected override bool OnBackButtonPressed()
+    {
+        // Prevent going back to InstructiePage
+        return true;
+    }
 }

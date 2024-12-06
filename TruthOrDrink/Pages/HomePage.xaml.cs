@@ -2,11 +2,10 @@ namespace TruthOrDrink;
 
 public partial class HomePage : ContentPage
 {
-    public HomePage(Entry username)
+    public HomePage(string username)
     {
         InitializeComponent();
-        String usernameText = username.Text;
-        string WelcomeMessage = $"Welkom {usernameText}";
+        string WelcomeMessage = $"Welkom {username}";
         Welcome_Label.Text = WelcomeMessage;
 
     }
@@ -27,5 +26,11 @@ public partial class HomePage : ContentPage
     {
         // Openen van de externe URL
         await Launcher.OpenAsync("https://www.bol.com/nl/nl/p/truth-or-drink-guilty-pleasures-nederlandstalig-kaartspel/9300000182707032/");
+    }
+
+    protected override bool OnBackButtonPressed()
+    {
+        // Prevent going back to InstructiePage
+        return true;
     }
 }

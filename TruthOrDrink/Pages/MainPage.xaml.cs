@@ -22,7 +22,7 @@
             { PasswordEntry.Placeholder = "Vul iets in!"; }
             else
             {
-                Navigation.PushAsync(new HomePage(UsernameEntry));
+                Navigation.PushAsync(new HomePage(UsernameEntry.Text));
             }
 
         }

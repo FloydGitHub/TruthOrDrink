@@ -22,7 +22,7 @@
             </Border>
             <Button
                 x:Name="BackToMainMenuButton"
-                Text="Spel Beëindigrn"
+                Text="Spel Beëindigen"
                 VerticalOptions="Center"
                 HorizontalOptions="Center"
                 Margin="10"

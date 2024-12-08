@@ -4,18 +4,98 @@
              x:Class="TruthOrDrink.Pages.GamePlayPages.EditRulesPage"
              Title="EditRulesPage"
              NavigationPage.HasNavigationBar="False">
-    <VerticalStackLayout>
-        <Label 
-            Text="Hier kunnen de regels aangepast worden"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-        <Button
-            x:Name="SafeButton"
-            Text="Opslaan"
-            VerticalOptions="Center"
-            HorizontalOptions="Center"
-            Margin="10"
-            Clicked="SafeButton_Clicked">
-        </Button>
-    </VerticalStackLayout>
+    <ScrollView>
+        <StackLayout Padding="10" Spacing="5">
+            <Label
+              Text="Pas de regels aan: "
+              HorizontalOptions="Center"
+              FontSize="25"/>
+            <!-- Level Section with Border -->
+            <Border Background="LightBlue" Padding="5" WidthRequest="300">
+                <StackLayout>
+                    <Label Text="Level vragen" FontAttributes="Bold" FontSize="Small" HorizontalOptions="Center"/>
+                    <StackLayout Orientation="Vertical" Spacing="-10">
+                        <HorizontalStackLayout>
+                            <CheckBox x:Name="CheckBoxLevel1"/>
+                            <Label Text="1" VerticalOptions="Center" FontSize="Small"/>
+                        </HorizontalStackLayout>
+                        <HorizontalStackLayout>
+                            <CheckBox x:Name="CheckBoxLevel2"/>
+                            <Label Text="2" VerticalOptions="Center" FontSize="Small"/>
+                        </HorizontalStackLayout>
+                        <HorizontalStackLayout>
+                            <CheckBox x:Name="CheckBoxLevel3"/>
+                            <Label Text="3" VerticalOptions="Center" FontSize="Small"/>
+                        </HorizontalStackLayout>
+                        <HorizontalStackLayout>
+                            <CheckBox x:Name="CheckBoxLevel4"/>
+                            <Label Text="4" VerticalOptions="Center" FontSize="Small"/>
+                        </HorizontalStackLayout>
+                        <HorizontalStackLayout>
+                            <CheckBox x:Name="CheckBoxLevel5"/>
+                            <Label Text="5" VerticalOptions="Center" FontSize="Small"/>
+                        </HorizontalStackLayout>
+                    </StackLayout>
+                </StackLayout>
+            </Border>
+
+            <!-- Categorie Section with Border -->
+            <Border Background="Green" Padding="5" WidthRequest="300">
+                <StackLayout>
+                    <Label Text="Categorie vragen" FontAttributes="Bold" FontSize="Small" HorizontalOptions="Center"/>
+                    <StackLayout Orientation="Vertical" Spacing="-10">
+                        <HorizontalStackLayout>
+                            <CheckBox x:Name="CheckBoxCategorie1"/>
+                            <Label Text="Categorie 1" VerticalOptions="Center" FontSize="Small"/>
+                        </HorizontalStackLayout>
+                        <HorizontalStackLayout>
+                            <CheckBox x:Name="CheckBoxCategorie2"/>
+                            <Label Text="Categorie 2" VerticalOptions="Center" FontSize="Small"/>
+                        </HorizontalStackLayout>
+                        <HorizontalStackLayout>
+                            <CheckBox x:Name="CheckBoxCategorie3"/>
+                            <Label Text="Categorie 3" VerticalOptions="Center" FontSize="Small"/>
+                        </HorizontalStackLayout>
+                    </StackLayout>
+                </StackLayout>
+            </Border>
+
+            <!-- Eigenaar Section with Border -->
+            <Border Background="Red" Padding="5" WidthRequest="300">
+                <StackLayout>
+                    <Label Text="Soorte vrgen" FontAttributes="Bold" FontSize="Small" HorizontalOptions="Center"/>
+                    <StackLayout Orientation="Vertical" Spacing="-10">
+                        <HorizontalStackLayout>
+                            <CheckBox x:Name="CheckBoxCustom" />
+                            <Label Text="Custom" VerticalOptions="Center" FontSize="Small"/>
+                        </HorizontalStackLayout>
+                        <HorizontalStackLayout>
+                            <CheckBox x:Name="CheckBoxStandaard"/>
+                            <Label Text="Standaard" VerticalOptions="Center" FontSize="Small"/>
+                        </HorizontalStackLayout>
+                    </StackLayout>
+                </StackLayout>
+            </Border>
+
+            <HorizontalStackLayout
+                HorizontalOptions="Center">
+                <Button
+                  x:Name="BackButton"
+                  Text="Terug"
+                  HorizontalOptions="Center"
+                  VerticalOptions="Center"
+                  WidthRequest="120"
+                  Margin="10"
+                  Clicked="BackButton_Clicked"/>
+                <Button
+                  x:Name="SafeButton"
+                  Text="Pas regels toe"
+                  HorizontalOptions="Center"
+                  VerticalOptions="Center"
+                  WidthRequest="120"
+                  Margin="10"
+                  Clicked="SafeButton_Clicked"/>
+            </HorizontalStackLayout>
+        </StackLayout>
+    </ScrollView>
 </ContentPage>

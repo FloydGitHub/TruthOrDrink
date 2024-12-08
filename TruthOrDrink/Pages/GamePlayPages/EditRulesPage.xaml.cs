@@ -10,4 +10,8 @@ public partial class EditRulesPage : ContentPage
     {
         Navigation.PopAsync();
     }
+	public void BackButton_Clicked(object sender, EventArgs e)
+    {
+        Navigation.PopAsync();
+    }
 }

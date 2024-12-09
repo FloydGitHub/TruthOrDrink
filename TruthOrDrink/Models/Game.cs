@@ -70,7 +70,9 @@ namespace TruthOrDrink.Models
                  (q.Level == 2 && LevelTwoAllowed) ||
                  (q.Level == 3 && LevelThreeAllowed) ||
                  (q.Level == 4 && LevelFourAllowed) ||
-                 (q.Level == 5 && LevelFiveAllowed))
+                 (q.Level == 5 && LevelFiveAllowed)) &&
+
+            (Categories == null || Categories.Any(c => c.Id == q.CategoryId))
             ).ToList();
             
         }

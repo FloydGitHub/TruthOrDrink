@@ -89,7 +89,7 @@ public partial class OpenGamesIndexPage : ContentPage
             List<Question> allQuestions = new List<Question> { question, question2 };
             //filter m oet nog toegepast worden
 
-            selectedGame.QuestionsToAsked = allQuestions;
+            selectedGame.QuestionsToAsk = allQuestions;
             Navigation.PushAsync(new QuestionPage(selectedGame));
         }
     }

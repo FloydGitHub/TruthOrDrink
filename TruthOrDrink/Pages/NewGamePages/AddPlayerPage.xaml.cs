@@ -72,7 +72,7 @@ public partial class AddPlayerPage : ContentPage
         };
 
         List<Question> allQuestions = new List<Question> { question, question2 };
-        game.QuestionsToAsked = allQuestions;
+        game.QuestionsToAsk = allQuestions;
         Navigation.PushAsync(new QuestionPage(game));
     }
 }

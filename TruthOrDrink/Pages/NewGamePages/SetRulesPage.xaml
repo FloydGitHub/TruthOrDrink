@@ -15,23 +15,23 @@
                 <Label Text="Level vragen" FontAttributes="Bold" FontSize="Small" HorizontalOptions="Center"/>
                 <StackLayout Orientation="Vertical" Spacing="-10">
                     <HorizontalStackLayout>
-                        <CheckBox x:Name="CheckBoxLevel1"/>
+                        <CheckBox x:Name="CheckBoxLevel1" CheckedChanged="OnLevelCheckBoxCheckedChanged"/>
                         <Label Text="1" VerticalOptions="Center" FontSize="Small"/>
                     </HorizontalStackLayout>
                     <HorizontalStackLayout>
-                        <CheckBox x:Name="CheckBoxLevel2"/>
+                        <CheckBox x:Name="CheckBoxLevel2" CheckedChanged="OnLevelCheckBoxCheckedChanged"/>
                         <Label Text="2" VerticalOptions="Center" FontSize="Small"/>
                     </HorizontalStackLayout>
                     <HorizontalStackLayout>
-                        <CheckBox x:Name="CheckBoxLevel3"/>
+                        <CheckBox x:Name="CheckBoxLevel3" CheckedChanged="OnLevelCheckBoxCheckedChanged"/>
                         <Label Text="3" VerticalOptions="Center" FontSize="Small"/>
                     </HorizontalStackLayout>
                     <HorizontalStackLayout>
-                        <CheckBox x:Name="CheckBoxLevel4"/>
+                        <CheckBox x:Name="CheckBoxLevel4" CheckedChanged="OnLevelCheckBoxCheckedChanged"/>
                         <Label Text="4" VerticalOptions="Center" FontSize="Small"/>
                     </HorizontalStackLayout>
                     <HorizontalStackLayout>
-                        <CheckBox x:Name="CheckBoxLevel5"/>
+                        <CheckBox x:Name="CheckBoxLevel5" CheckedChanged="OnLevelCheckBoxCheckedChanged"/>
                         <Label Text="5" VerticalOptions="Center" FontSize="Small"/>
                     </HorizontalStackLayout>
                 </StackLayout>
@@ -44,15 +44,15 @@
                 <Label Text="Categorie vragen" FontAttributes="Bold" FontSize="Small" HorizontalOptions="Center"/>
                 <StackLayout Orientation="Vertical" Spacing="-10">
                     <HorizontalStackLayout>
-                        <CheckBox x:Name="CheckBoxCategorie1"/>
+                        <CheckBox x:Name="CheckBoxCategory1" CheckedChanged="OnCategoryCheckBoxCheckedChanged"/>
                         <Label Text="Categorie 1" VerticalOptions="Center" FontSize="Small"/>
                     </HorizontalStackLayout>
                     <HorizontalStackLayout>
-                        <CheckBox x:Name="CheckBoxCategorie2"/>
+                        <CheckBox x:Name="CheckBoxCategory2" CheckedChanged="OnCategoryCheckBoxCheckedChanged"/>
                         <Label Text="Categorie 2" VerticalOptions="Center" FontSize="Small"/>
                     </HorizontalStackLayout>
                     <HorizontalStackLayout>
-                        <CheckBox x:Name="CheckBoxCategorie3"/>
+                        <CheckBox x:Name="CheckBoxCategory3" CheckedChanged="OnCategoryCheckBoxCheckedChanged"/>
                         <Label Text="Categorie 3" VerticalOptions="Center" FontSize="Small"/>
                     </HorizontalStackLayout>
                 </StackLayout>
@@ -65,11 +65,11 @@
                 <Label Text="Soorte vrgen" FontAttributes="Bold" FontSize="Small" HorizontalOptions="Center"/>
                 <StackLayout Orientation="Vertical" Spacing="-10">
                     <HorizontalStackLayout>
-                        <CheckBox x:Name="CheckBoxCustom" />
+                        <CheckBox x:Name="CheckBoxCustom" CheckedChanged="OnCustomCheckBoxCheckedChanged"/>
                         <Label Text="Custom" VerticalOptions="Center" FontSize="Small"/>
                     </HorizontalStackLayout>
                     <HorizontalStackLayout>
-                        <CheckBox x:Name="CheckBoxStandaard"/>
+                        <CheckBox x:Name="CheckBoxStandard" CheckedChanged="OnCustomCheckBoxCheckedChanged"/>
                         <Label Text="Standaard" VerticalOptions="Center" FontSize="Small"/>
                     </HorizontalStackLayout>
                 </StackLayout>

@@ -10,4 +10,5 @@
              xmlns:local="clr-namespace:TruthOrDrink.Pages.NewGamePages">
     <local:SetRulesPage Title="Regels"/>
     <local:AddPlayerPage Title="Spelers"/>
+    
 </TabbedPage>

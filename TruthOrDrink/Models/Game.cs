@@ -24,7 +24,7 @@ namespace TruthOrDrink.Models
 
         public virtual ICollection<Player>? Players { get; set; }
         public virtual ICollection<Category>? Categories { get; set; }
-        public virtual ICollection<Question>? QuestionsToAsked { get; set; }
+        public virtual ICollection<Question>? QuestionsToAsk { get; set; }
         public string PlayerNames
         {
             get
@@ -39,10 +39,10 @@ namespace TruthOrDrink.Models
         public Question GetNextQuestion()
         {
             Random rng = new Random();
-            var randomQuestion = QuestionsToAsked.Any() ? QuestionsToAsked.OrderBy(x => rng.Next()).FirstOrDefault() : null;
+            var randomQuestion = QuestionsToAsk.Any() ? QuestionsToAsk.OrderBy(x => rng.Next()).FirstOrDefault() : null;
             if (randomQuestion != null)
             {
-                QuestionsToAsked.Remove(randomQuestion);
+                QuestionsToAsk.Remove(randomQuestion);
             }
             return randomQuestion;
 
@@ -57,6 +57,22 @@ namespace TruthOrDrink.Models
         {
             Players.Remove(Players.FirstOrDefault(p => p.Id == playerToUpdate.Id));
             Players.Add(playerToUpdate);
+        }
+
+        // Filter van levels en custom/standard
+        // nog geen Category filter
+        // vragen moeten uit DB komen
+        public void FilterQuestions(List<Question> questions)
+        {
+            QuestionsToAsk = questions.Where(q =>
+                ((q.CustomQuestion && CustomQuestionsAllowed) || (!q.CustomQuestion && StandardQuestionsAllowed)) &&
+                ((q.Level == 1 && LevelOneAllowed) ||
+                 (q.Level == 2 && LevelTwoAllowed) ||
+                 (q.Level == 3 && LevelThreeAllowed) ||
+                 (q.Level == 4 && LevelFourAllowed) ||
+                 (q.Level == 5 && LevelFiveAllowed))
+            ).ToList();
+            
         }
     }
 }

@@ -60,7 +60,6 @@ namespace TruthOrDrink.Models
         }
 
         // Filter van levels en custom/standard
-        // nog geen Category filter
         // vragen moeten uit DB komen
         public void FilterQuestions(List<Question> questions)
         {

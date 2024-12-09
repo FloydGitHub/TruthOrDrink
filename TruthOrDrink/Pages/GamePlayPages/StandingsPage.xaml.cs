@@ -21,7 +21,7 @@ public partial class StandingsPage : ContentPage
     }
     private void EditRulesButton_Clicked(object sender, EventArgs e)
     {
-        Navigation.PushAsync(new EditRulesPage());
+        Navigation.PushAsync(new EditRulesPage(CurrentGame));
     }
     private void SaveGameButton_Clicked(object sender, EventArgs e)
     {

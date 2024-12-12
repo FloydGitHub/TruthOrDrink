@@ -46,16 +46,16 @@
                     <Label Text="Categorie vragen" FontAttributes="Bold" FontSize="Small" HorizontalOptions="Center"/>
                     <StackLayout Orientation="Vertical" Spacing="-10">
                         <HorizontalStackLayout>
-                            <CheckBox x:Name="CheckBoxCategory1" CheckedChanged="OnCategoryCheckBoxCheckedChanged"/>
-                            <Label Text="Categorie 1" VerticalOptions="Center" FontSize="Small"/>
+                            <CheckBox x:Name="CheckBoxCategoryStandaard" CheckedChanged="OnCategoryCheckBoxCheckedChanged"/>
+                            <Label Text="Standaard" VerticalOptions="Center" FontSize="Small"/>
                         </HorizontalStackLayout>
                         <HorizontalStackLayout>
-                            <CheckBox x:Name="CheckBoxCategory2" CheckedChanged="OnCategoryCheckBoxCheckedChanged"/>
-                            <Label Text="Categorie 2" VerticalOptions="Center" FontSize="Small"/>
+                            <CheckBox x:Name="CheckBoxCategorySpicy" CheckedChanged="OnCategoryCheckBoxCheckedChanged"/>
+                            <Label Text="Spicy" VerticalOptions="Center" FontSize="Small"/>
                         </HorizontalStackLayout>
                         <HorizontalStackLayout>
-                            <CheckBox x:Name="CheckBoxCategory3" CheckedChanged="OnCategoryCheckBoxCheckedChanged"/>
-                            <Label Text="Categorie 3" VerticalOptions="Center" FontSize="Small"/>
+                            <CheckBox x:Name="CheckBoxCategorySpecial" CheckedChanged="OnCategoryCheckBoxCheckedChanged"/>
+                            <Label Text="Special" VerticalOptions="Center" FontSize="Small"/>
                         </HorizontalStackLayout>
                     </StackLayout>
                 </StackLayout>

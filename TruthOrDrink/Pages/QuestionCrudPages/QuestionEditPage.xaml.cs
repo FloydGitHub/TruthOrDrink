@@ -24,6 +24,23 @@ public partial class QuestionEditPage : ContentPage
         {
             return;
         }
+        selectedQuestion.Text = QuestionEntry.Text;
+        selectedQuestion.Level = LevelPicker.SelectedIndex + 1;
+        List<Category> categories = Category.GetCategories();
+        Category? chosenCategory = null;
+        if (CategoryPicker.SelectedIndex == 0)
+        {
+            chosenCategory = categories[0];
+        }
+        else if (CategoryPicker.SelectedIndex == 1)
+        {
+            chosenCategory = categories[1];
+        }
+        else if (CategoryPicker.SelectedIndex == 2)
+        {
+            chosenCategory = categories[2];
+        }
+        selectedQuestion.Category = chosenCategory;
         Navigation.PopAsync();
     }
 }

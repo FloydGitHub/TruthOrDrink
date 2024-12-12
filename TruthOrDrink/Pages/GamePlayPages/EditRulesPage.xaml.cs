@@ -10,7 +10,7 @@ public partial class EditRulesPage : ContentPage
 		InitializeComponent();
         CurrentGame = currentGame;
         CheckBoxLevel1.IsChecked = true;
-        CheckBoxCategory1.IsChecked = true;
+        CheckBoxCategoryStandaard.IsChecked = true;
         CheckBoxCustom.IsChecked = true;
     }
 
@@ -19,6 +19,7 @@ public partial class EditRulesPage : ContentPage
     //Past de vragen nog niet aan
 	public void SafeButton_Clicked(object sender, EventArgs e)
     {
+        //levels
         if (CheckBoxLevel1.IsChecked)
         {
             CurrentGame.LevelOneAllowed = true;
@@ -39,6 +40,21 @@ public partial class EditRulesPage : ContentPage
         {
             CurrentGame.LevelFiveAllowed = true;
         }
+        // catogorieen
+        List<Category> categories = Category.GetCategories();
+        if (CheckBoxCategoryStandaard.IsChecked)
+        {
+            CurrentGame.Categories.Add(categories[0]);
+        }
+        if (CheckBoxCategorySpicy.IsChecked)
+        {
+            CurrentGame.Categories.Add(categories[1]);
+        }
+        if (CheckBoxCategorySpecial.IsChecked)
+        {
+            CurrentGame.Categories.Add(categories[2]);
+        }
+        //Custom/standaard vragen
         if (CheckBoxCustom.IsChecked)
         {
             CurrentGame.CustomQuestionsAllowed = true;
@@ -69,8 +85,8 @@ public partial class EditRulesPage : ContentPage
 
     private void OnCategoryCheckBoxCheckedChanged(object sender, CheckedChangedEventArgs e)
     {
-        bool isAnyChecked = CheckBoxCategory1.IsChecked || CheckBoxCategory2.IsChecked ||
-                            CheckBoxCategory3.IsChecked;
+        bool isAnyChecked = CheckBoxCategoryStandaard.IsChecked || CheckBoxCategorySpicy.IsChecked ||
+                            CheckBoxCategorySpecial.IsChecked;
 
         if (!isAnyChecked && sender is CheckBox currentCheckbox)
         {

@@ -6,7 +6,7 @@ public partial class SetRulesPage : ContentPage
     {
         InitializeComponent();
         CheckBoxLevel1.IsChecked = true;
-        CheckBoxCategory1.IsChecked = true;
+        CheckBoxCategoryStandaard.IsChecked = true;
         CheckBoxCustom.IsChecked = true;
     }
     private void BackButton_Clicked(object sender, EventArgs e)
@@ -28,8 +28,8 @@ public partial class SetRulesPage : ContentPage
 
     private void OnCategoryCheckBoxCheckedChanged(object sender, CheckedChangedEventArgs e)
     {
-        bool isAnyChecked = CheckBoxCategory1.IsChecked || CheckBoxCategory2.IsChecked ||
-                            CheckBoxCategory3.IsChecked;
+        bool isAnyChecked = CheckBoxCategoryStandaard.IsChecked || CheckBoxCategorySpicy.IsChecked ||
+                            CheckBoxCategorySpecial.IsChecked;
 
         if (!isAnyChecked && sender is CheckBox currentCheckbox)
         {

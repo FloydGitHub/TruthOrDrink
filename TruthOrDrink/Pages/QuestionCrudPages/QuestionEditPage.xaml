@@ -38,11 +38,10 @@
         WidthRequest="200">
                 <Picker.ItemsSource>
                     <x:Array Type="{x:Type x:String}">
-                        <x:String>category 1</x:String>
-                        <x:String>category 2</x:String>
-                        <x:String>category 3</x:String>
-                        <x:String>category 4</x:String>
-                    </x:Array>
+                    <x:String>Standaard</x:String>
+                    <x:String>Spicy</x:String>
+                    <x:String>Special</x:String>
+                </x:Array>
                 </Picker.ItemsSource>
             </Picker>
 

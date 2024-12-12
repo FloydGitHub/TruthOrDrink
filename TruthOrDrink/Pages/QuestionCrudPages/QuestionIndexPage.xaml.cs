@@ -41,6 +41,16 @@ public partial class QuestionIndexPage : ContentPage
             Navigation.PushAsync(new QuestionEditPage(selectedQuestion, CurrentUser));
         }
     }
+    protected override void OnAppearing()
+    {
+        base.OnAppearing();
+
+        // Haal de meest recente data op van de gebruiker uit de database
+        List<Question> questionsFromUser = App.DBRepository.GetQuestionsFromUser(CurrentUser.Id);
+
+        // Update de ItemsSource van de CollectionView
+        QuestionsCollectionView.ItemsSource = questionsFromUser;
+    }
 
 
 }

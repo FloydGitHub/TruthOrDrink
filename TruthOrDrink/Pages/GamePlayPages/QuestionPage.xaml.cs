@@ -40,7 +40,7 @@ public partial class QuestionPage : ContentPage
             {
                 TwistCardButton.BackgroundColor = Color.FromHex("#808080");
             }
-            QuestionLabel.Text = $"Vraag voor {playerToAsk.Name},\n\n{questionToAsk.Text}.";
+            QuestionLabel.Text = $"Vraag voor {playerToAsk.Name},\n\n{questionToAsk.Text}";
             TwistCardLabel.Text = $"Doorschuivers over: {playerToAsk.TwistCard}";
         }
 

@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TruthOrDrink.DatabaseInfo;
 
 namespace TruthOrDrink.Models
 {
@@ -67,18 +68,32 @@ namespace TruthOrDrink.Models
 
         // Filter van levels en custom/standard
         // vragen moeten uit DB komen
-        public void FilterQuestions(List<Question> questions)
+        public void FilterQuestions()
         {
-            QuestionsToAsk = questions.Where(q =>
-                ((q.CustomQuestion && CustomQuestionsAllowed) || (!q.CustomQuestion && StandardQuestionsAllowed)) &&
-                ((q.Level == 1 && LevelOneAllowed) ||
-                 (q.Level == 2 && LevelTwoAllowed) ||
-                 (q.Level == 3 && LevelThreeAllowed) ||
-                 (q.Level == 4 && LevelFourAllowed) ||
-                 (q.Level == 5 && LevelFiveAllowed)) &&
-
-            (Categories == null || Categories.Any(c => c.Id == q.CategoryId))
+            DBRepository dBRepository = new DBRepository();
+            List<Question> questions = dBRepository.GetQuestions();
+            //Standaard/Custom filter
+            questions = questions.Where(q =>
+                (q.CustomQuestion && CustomQuestionsAllowed) ||
+                (!q.CustomQuestion && StandardQuestionsAllowed)
             ).ToList();
+
+            //Categorie filter
+            questions = questions.Where(q =>
+                Categories == null || Categories.Any(c => c.Id == q.CategoryId)
+            ).ToList();
+
+            //Level Filter
+                questions = questions.Where(q =>
+                (q.Level == 1 && LevelOneAllowed) ||
+                (q.Level == 2 && LevelTwoAllowed) ||
+                (q.Level == 3 && LevelThreeAllowed) ||
+                (q.Level == 4 && LevelFourAllowed) ||
+                (q.Level == 5 && LevelFiveAllowed)
+            ).ToList();
+
+            QuestionsToAsk = questions;
+            return;
             
         }
     }

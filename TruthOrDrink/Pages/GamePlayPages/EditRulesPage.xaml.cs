@@ -26,21 +26,41 @@ public partial class EditRulesPage : ContentPage
         {
             CurrentGame.LevelOneAllowed = true;
         }
+        else
+        {
+            CurrentGame.LevelOneAllowed = false;
+        }
         if (CheckBoxLevel2.IsChecked)
         {
             CurrentGame.LevelTwoAllowed = true;
+        }
+        else
+        {
+            CurrentGame.LevelTwoAllowed = false;
         }
         if (CheckBoxLevel3.IsChecked)
         {
             CurrentGame.LevelThreeAllowed = true;
         }
+        else
+        {
+            CurrentGame.LevelThreeAllowed = false;
+        }
         if (CheckBoxLevel4.IsChecked)
         {
             CurrentGame.LevelFourAllowed = true;
         }
+        else
+        {
+            CurrentGame.LevelFourAllowed = false;
+        }
         if (CheckBoxLevel5.IsChecked)
         {
             CurrentGame.LevelFiveAllowed = true;
+        }
+        else
+        {
+            CurrentGame.LevelFiveAllowed = false;
         }
         // catogorieen
         List<Category> categories = Category.GetCategories();
@@ -61,11 +81,19 @@ public partial class EditRulesPage : ContentPage
         {
             CurrentGame.CustomQuestionsAllowed = true;
         }
+        else
+        {
+            CurrentGame.CustomQuestionsAllowed = false;
+        }
         if (CheckBoxStandard.IsChecked)
         {
             CurrentGame.StandardQuestionsAllowed = true;
         }
-        //CurrentGame.FilterQuestions();
+        else
+        {
+            CurrentGame.StandardQuestionsAllowed = false;
+        }
+        CurrentGame.FilterQuestions();
         Navigation.PushAsync(new QuestionPage(CurrentGame, CurrentUser));
     }
 	public void BackButton_Clicked(object sender, EventArgs e)

@@ -13,14 +13,14 @@ public partial class OpenGamesIndexPage : ContentPage
         Category category = new Category()
         {
             Id = 1,
-            Name = "Category 1",
-            Description = "Description 1"
+            Name = "Standaard",
+            Description = "Standaard vragen",
         };
         Player player = new Player()
         {
             Id = 1,
             Name = "Player 1",
-            TwistCard = 1,
+            TwistCard = 2,
             Drinks = 1,
             Answers = 0,
         };
@@ -38,7 +38,9 @@ public partial class OpenGamesIndexPage : ContentPage
             Categories = new List<Category> { category },
             Players = new List<Player> { player, player2 },
             StartingMoment = DateTime.Now,
-            LevelOneAllowed = true,
+            LevelOneAllowed = false,
+            LevelTwoAllowed = true,
+            CustomQuestionsAllowed = true,
         };
         List<Game> games = new List<Game> { game };
         GamesCollectionView.ItemsSource = games;
@@ -63,36 +65,7 @@ public partial class OpenGamesIndexPage : ContentPage
         var button = sender as Button;
         if (button?.CommandParameter is Game selectedGame)
         {
-            Question question = new Question()
-            {
-                Id = 1,
-                Text = "Question 1",
-                Level = 1,
-                Category = new Category()
-                {
-                    Id = 1,
-                    Name = "Category 1",
-                    Description = "Description 1"
-                }
-            };
-            Question question2 = new Question()
-            {
-                Id = 2,
-                Level = 2,
-                Text = "Question 2",
-                Category = new Category()
-                {
-                    Id = 1,
-                    Name = "Category 1",
-                    Description = "Description 1"
-                }
-            };
-
-            //
-            List<Question> allQuestions = new List<Question> { question, question2 };
-            //filter m oet nog toegepast worden
-
-            selectedGame.QuestionsToAsk = allQuestions;
+            selectedGame.FilterQuestions();
             Navigation.PushAsync(new QuestionPage(selectedGame, CurrentUser));
         }
     }

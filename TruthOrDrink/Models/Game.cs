@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SQLite;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -7,8 +8,10 @@ using System.Threading.Tasks;
 
 namespace TruthOrDrink.Models
 {
+    [Table("Games")]
     public class Game
     {
+        [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
         [Required]
         public DateTime StartingMoment { get; set; }
@@ -21,10 +24,13 @@ namespace TruthOrDrink.Models
         public bool LevelThreeAllowed { get; set; }
         public bool LevelFourAllowed { get; set; }
         public bool LevelFiveAllowed { get; set; }
-
+        [Ignore]
         public virtual ICollection<Player>? Players { get; set; }
+        [Ignore]
         public virtual ICollection<Category>? Categories { get; set; }
+        [Ignore]
         public virtual ICollection<Question>? QuestionsToAsk { get; set; }
+        [Ignore]
         public string PlayerNames
         {
             get

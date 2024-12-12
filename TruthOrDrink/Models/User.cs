@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SQLite;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -7,13 +8,18 @@ using System.Threading.Tasks;
 
 namespace TruthOrDrink.Models
 {
+    [Table("Users")]
     public class User
     {
+        [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
-        [Required]
+        [NotNull]
         public required string Username { get; set; }
-        //public string Password { get; set; }
+        [NotNull]
+        public string? Password { get; set; }
+        [Ignore]
         public virtual ICollection<Player>? MyPlayers { get; set; }
+        [Ignore]
         public virtual ICollection<Question>? MadeQuestions { get; set; }
     }
 }

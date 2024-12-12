@@ -1,21 +1,25 @@
+using TruthOrDrink.Models;
+
 namespace TruthOrDrink;
 
 public partial class HomePage : ContentPage
 {
-    public HomePage(string username)
+    public User CurrentUser { get; set; }
+    public HomePage(User currenterUser)
     {
+        CurrentUser = currenterUser;
         InitializeComponent();
-        string WelcomeMessage = $"Welkom {username}";
+        string WelcomeMessage = $"Welkom {CurrentUser.Username}";
         Welcome_Label.Text = WelcomeMessage;
 
     }
     private void QuestionIndexButton_Clicked(object sender, EventArgs e)
     {
-        Navigation.PushAsync(new QuestionIndexPage());
+        Navigation.PushAsync(new QuestionIndexPage(CurrentUser));
     }
     private void ContinuButton_Clicked(object sender, EventArgs e)
     {
-        Navigation.PushAsync(new Pages.ContinuGamePages.OpenGamesIndexPage());
+        Navigation.PushAsync(new Pages.ContinuGamePages.OpenGamesIndexPage(CurrentUser));
     }
     private void NewGameButton_Clicked(object sender, EventArgs e)
     {

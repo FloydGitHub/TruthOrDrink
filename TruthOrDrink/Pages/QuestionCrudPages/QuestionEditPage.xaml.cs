@@ -5,12 +5,13 @@ namespace TruthOrDrink.Pages.QuestionCrudPages;
 public partial class QuestionEditPage : ContentPage
 {
     private Question selectedQuestion;
-
-    public QuestionEditPage(Question question)
+    public User CurrentUser { get; set; }
+    public QuestionEditPage(Question question, User currentUser)
     {
         InitializeComponent();
         selectedQuestion = question;
         QuestionEntry.Text = selectedQuestion.Text;
+        CurrentUser = currentUser;
     }
 
     public void BackButton_Clicked(object sender, EventArgs e)

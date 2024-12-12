@@ -7,10 +7,12 @@ public partial class TwistCardPage : ContentPage
     public Game CurrentGame { get; set; }
     public Question QuestionToRedirect { get; set; }
     public Player TwistCardUser { get; set; }
+    public User CurrentUser { get; set; }
 
-    public TwistCardPage(Game currentGame, Question questionToRedirect, Player twistCardUser)
+    public TwistCardPage(Game currentGame, Question questionToRedirect, Player twistCardUser, User user)
 	{
-		InitializeComponent();
+        CurrentUser = user;
+        InitializeComponent();
         CurrentGame = currentGame;
         QuestionToRedirect = questionToRedirect;
         TwistCardUser = twistCardUser;
@@ -32,6 +34,6 @@ public partial class TwistCardPage : ContentPage
         CurrentGame.UpdatePlayerScore(TwistCardUser);
         Button button = (Button)sender;
         Player player = (Player)button.CommandParameter;
-        Navigation.PushAsync(new QuestionPage(CurrentGame, QuestionToRedirect, player));
+        Navigation.PushAsync(new QuestionPage(CurrentGame, CurrentUser ,QuestionToRedirect, player));
     }
 }

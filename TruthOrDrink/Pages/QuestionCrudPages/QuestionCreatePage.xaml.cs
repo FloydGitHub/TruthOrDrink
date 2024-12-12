@@ -4,9 +4,11 @@ namespace TruthOrDrink;
 
 public partial class QuestionCreatePage : ContentPage
 {
-    public QuestionCreatePage()
+    User CurrentUser { get; set; }
+    public QuestionCreatePage(User currentUser)
     {
         InitializeComponent();
+        CurrentUser = currentUser;
     }
 
     public void BackButton_Clicked(object sender, EventArgs e)

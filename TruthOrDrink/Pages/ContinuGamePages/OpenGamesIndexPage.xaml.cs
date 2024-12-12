@@ -5,8 +5,10 @@ namespace TruthOrDrink.Pages.ContinuGamePages;
 
 public partial class OpenGamesIndexPage : ContentPage
 {
-    public OpenGamesIndexPage()
+    public User CurrentUser { get; set; }
+    public OpenGamesIndexPage(User currentUser)
     {
+        CurrentUser = currentUser;
         InitializeComponent();
         Category category = new Category()
         {
@@ -40,6 +42,7 @@ public partial class OpenGamesIndexPage : ContentPage
         };
         List<Game> games = new List<Game> { game };
         GamesCollectionView.ItemsSource = games;
+        CurrentUser = currentUser;
     }
     private void BackButton_Clicked(object sender, EventArgs e)
     {
@@ -90,7 +93,7 @@ public partial class OpenGamesIndexPage : ContentPage
             //filter m oet nog toegepast worden
 
             selectedGame.QuestionsToAsk = allQuestions;
-            Navigation.PushAsync(new QuestionPage(selectedGame));
+            Navigation.PushAsync(new QuestionPage(selectedGame, CurrentUser));
         }
     }
 

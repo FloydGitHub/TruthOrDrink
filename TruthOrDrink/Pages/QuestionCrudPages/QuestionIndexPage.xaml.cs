@@ -6,38 +6,14 @@ namespace TruthOrDrink;
 
 public partial class QuestionIndexPage : ContentPage
 {
-    public QuestionIndexPage()
+    public User CurrentUser { get; set; }
+    public QuestionIndexPage(User currentUser)
     {
         InitializeComponent();
-        List<Question> questions = new List<Question>();
-        Category category = new Category()
-        {
-            Name = "Persoonlijk",
-            Description = "Vragen die je persoonlijk raken",
-        };
+        CurrentUser = currentUser;
+        List<Question> questionsFromUser = App.DBRepository.GetQuestionsFromUser(CurrentUser.Id);
 
-        Question question = new Question()
-        {
-            Id = 1,
-            Text = "Hoe heet je?",
-            Category = category,
-            Level = 2,
-            CustomQuestion = true,
-            PhotoQuestion = false,
-        };
-        Question question2 = new Question()
-        {
-            Id = 2,
-            Text = "Wat is je favoriete kleur?",
-            Category = category,
-            Level = 1,
-            CustomQuestion = true,
-            PhotoQuestion = false,
-        };
-
-        questions.Add(question);
-        questions.Add(question2);
-        QuestionsCollectionView.ItemsSource = questions;
+        QuestionsCollectionView.ItemsSource = questionsFromUser;
     }
     private void BackButton_Clicked(object sender, EventArgs e)
     {
@@ -45,14 +21,14 @@ public partial class QuestionIndexPage : ContentPage
     }
     private void CreateQuestionPageButton_Clicked(object sender, EventArgs e)
     {
-        Navigation.PushAsync(new QuestionCreatePage());
+        Navigation.PushAsync(new QuestionCreatePage(CurrentUser));
     }
     private void DeleteQuestionButton_Clicked(object sender, EventArgs e)
     {
         var button = sender as Button;
         if (button?.CommandParameter is Question selectedQuestion)
         {
-            Navigation.PushAsync(new QuestionDeletePage(selectedQuestion));
+            Navigation.PushAsync(new QuestionDeletePage(selectedQuestion, CurrentUser));
         }
     }
     private void EditQuestionButton_Clicked(object sender, EventArgs e)
@@ -62,7 +38,7 @@ public partial class QuestionIndexPage : ContentPage
         if (button?.CommandParameter is Question selectedQuestion)
         {
             
-            Navigation.PushAsync(new QuestionEditPage(selectedQuestion));
+            Navigation.PushAsync(new QuestionEditPage(selectedQuestion, CurrentUser));
         }
     }
 

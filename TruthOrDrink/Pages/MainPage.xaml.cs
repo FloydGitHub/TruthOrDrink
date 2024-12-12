@@ -1,4 +1,6 @@
-﻿namespace TruthOrDrink
+﻿using TruthOrDrink.Models;
+
+namespace TruthOrDrink
 {
     public partial class MainPage : ContentPage
     {
@@ -22,7 +24,8 @@
             { PasswordEntry.Placeholder = "Vul iets in!"; }
             else
             {
-                Navigation.PushAsync(new HomePage(UsernameEntry.Text));
+                User user = App.DBRepository.GetOrAddUser(UsernameEntry.Text, PasswordEntry.Text);
+                Navigation.PushAsync(new HomePage(user));
             }
 
         }

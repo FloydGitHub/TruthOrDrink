@@ -4,10 +4,12 @@ namespace TruthOrDrink.Pages.GamePlayPages;
 
 public partial class EditRulesPage : ContentPage
 {
-    public Game CurrentGame;
-    public EditRulesPage(Game currentGame)
+    public User CurrentUser { get; set; }
+    public Game CurrentGame { get; set; }
+    public EditRulesPage(Game currentGame, User currentUser)
 	{
-		InitializeComponent();
+        CurrentUser = currentUser;
+        InitializeComponent();
         CurrentGame = currentGame;
         CheckBoxLevel1.IsChecked = true;
         CheckBoxCategoryStandaard.IsChecked = true;
@@ -64,7 +66,7 @@ public partial class EditRulesPage : ContentPage
             CurrentGame.StandardQuestionsAllowed = true;
         }
         //CurrentGame.FilterQuestions();
-        Navigation.PushAsync(new QuestionPage(CurrentGame));
+        Navigation.PushAsync(new QuestionPage(CurrentGame, CurrentUser));
     }
 	public void BackButton_Clicked(object sender, EventArgs e)
     {

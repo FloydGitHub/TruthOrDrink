@@ -7,10 +7,12 @@ public partial class QuestionPage : ContentPage
     public Game currentGame { get; set; }
     public Question? questionToAsk { get; set; }
     public Player playerToAsk { get; set; }
+    public User CurrentUser { get; set; }
     // guvenQuestion en pickedPlayer worden alleen gebruikt nadat een twistcard is gespeeld.
-    public QuestionPage(Game game, Question? givenQuestion = null, Player? pickedPlayer = null)
+    public QuestionPage(Game game, User currentUser, Question? givenQuestion = null, Player? pickedPlayer = null)
     {
-		InitializeComponent();
+        CurrentUser = currentUser;
+        InitializeComponent();
         currentGame = game;
         if (givenQuestion == null)
         {
@@ -22,7 +24,7 @@ public partial class QuestionPage : ContentPage
         }
         if (questionToAsk == null)
         {
-            Navigation.PushAsync(new EndOfTheGamePage("Het spel is afgelopen omadat alle vragen gesteld zijn.", currentGame));
+            Navigation.PushAsync(new EndOfTheGamePage("Het spel is afgelopen omadat alle vragen gesteld zijn.", currentGame, CurrentUser));
         }
         else
         {
@@ -47,7 +49,7 @@ public partial class QuestionPage : ContentPage
     {
         if (playerToAsk.TwistCard > 0)
         {
-            Navigation.PushAsync(new TwistCardPage(currentGame, questionToAsk, playerToAsk));
+            Navigation.PushAsync(new TwistCardPage(currentGame, questionToAsk, playerToAsk, CurrentUser));
         }
 
     }
@@ -55,18 +57,18 @@ public partial class QuestionPage : ContentPage
     {
         playerToAsk.Answers += 1;
         currentGame.UpdatePlayerScore(playerToAsk);
-        Navigation.PushAsync(new QuestionPage(currentGame));
+        Navigation.PushAsync(new QuestionPage(currentGame, CurrentUser));
     }
 
     private void DrinkButton_Clicked(object sender, EventArgs e)
     {
         playerToAsk.Drinks += 1;
         currentGame.UpdatePlayerScore(playerToAsk);
-        Navigation.PushAsync(new QuestionPage(currentGame));
+        Navigation.PushAsync(new QuestionPage(currentGame, CurrentUser));
     }
     private void StandingsButton_Clicked(object sender, EventArgs e)
     {
-        Navigation.PushAsync(new StandingsPage(currentGame));
+        Navigation.PushAsync(new StandingsPage(currentGame, CurrentUser));
     }
     protected override bool OnBackButtonPressed()
     {

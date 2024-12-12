@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Maui;
 using Microsoft.Extensions.Logging;
+using TruthOrDrink.DatabaseInfo;
 
 namespace TruthOrDrink
 {
@@ -16,7 +17,7 @@ namespace TruthOrDrink
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
-
+            builder.Services.AddSingleton<DBRepository>();
 #if DEBUG
     		builder.Logging.AddDebug();
 #endif

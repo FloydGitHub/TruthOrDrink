@@ -5,9 +5,11 @@ namespace TruthOrDrink.Pages.NewGamePages;
 
 public partial class AddPlayerPage : ContentPage
 {
-	public AddPlayerPage()
+    //is gedaan omdat ik hier  nog geen waarders kan doorgeven met de tabbed ding
+    User testUser = new User { Id = 1, Username = "TestUser" };
+    public AddPlayerPage()
 	{
-		InitializeComponent();
+        InitializeComponent();
 	}
 
 	private void StartGameButton_Clicked(object sender, EventArgs e)
@@ -73,6 +75,6 @@ public partial class AddPlayerPage : ContentPage
 
         List<Question> allQuestions = new List<Question> { question, question2 };
         game.QuestionsToAsk = allQuestions;
-        Navigation.PushAsync(new QuestionPage(game));
+        Navigation.PushAsync(new QuestionPage(game, testUser));
     }
 }

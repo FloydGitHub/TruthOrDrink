@@ -45,15 +45,15 @@
                 <StackLayout Orientation="Vertical" Spacing="-10">
                     <HorizontalStackLayout>
                         <CheckBox x:Name="CheckBoxCategory1" CheckedChanged="OnCategoryCheckBoxCheckedChanged"/>
-                        <Label Text="Categorie 1" VerticalOptions="Center" FontSize="Small"/>
+                        <Label Text="Standaard" VerticalOptions="Center" FontSize="Small"/>
                     </HorizontalStackLayout>
                     <HorizontalStackLayout>
                         <CheckBox x:Name="CheckBoxCategory2" CheckedChanged="OnCategoryCheckBoxCheckedChanged"/>
-                        <Label Text="Categorie 2" VerticalOptions="Center" FontSize="Small"/>
+                        <Label Text="Spicy" VerticalOptions="Center" FontSize="Small"/>
                     </HorizontalStackLayout>
                     <HorizontalStackLayout>
                         <CheckBox x:Name="CheckBoxCategory3" CheckedChanged="OnCategoryCheckBoxCheckedChanged"/>
-                        <Label Text="Categorie 3" VerticalOptions="Center" FontSize="Small"/>
+                        <Label Text="Special" VerticalOptions="Center" FontSize="Small"/>
                     </HorizontalStackLayout>
                 </StackLayout>
             </StackLayout>

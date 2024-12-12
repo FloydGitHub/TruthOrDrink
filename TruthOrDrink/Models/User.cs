@@ -13,9 +13,9 @@ namespace TruthOrDrink.Models
     {
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
-        [NotNull]
-        public required string Username { get; set; }
-        [NotNull]
+        [Column("Username"), NotNull]
+        public string? Username { get; set; }
+        [Column("Password"), NotNull]
         public string? Password { get; set; }
         [Ignore]
         public virtual ICollection<Player>? MyPlayers { get; set; }

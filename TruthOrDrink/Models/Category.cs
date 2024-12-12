@@ -16,5 +16,16 @@ namespace TruthOrDrink.Models
         [Unique, NotNull]
         public required string Name { get; set; }
         public required string Description { get; set; }
+
+        public static List<Category> GetCategories()
+        {
+            return new List<Category>
+            {
+                new Category { Id = 1, Name = "Standaard", Description = "Standaard vragen" },
+                new Category { Id = 2, Name = "Spicy", Description = "Vragen die worden aangeraden vanaf 18+" },
+                new Category { Id = 3, Name = "Special", Description = "Voornamelijk opdrachten" },
+
+            };
+        }
     }
 }

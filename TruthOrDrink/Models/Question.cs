@@ -14,12 +14,13 @@ namespace TruthOrDrink.Models
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
         [NotNull]
-        public required string Text {  get; set; }
+        public string? Text {  get; set; }
         [NotNull]
         public int Level { get; set; }
         public bool CustomQuestion { get; set; }
         public bool PhotoQuestion { get; set; }
         //foreign key
+        [Column("CreatorId")]
         public int? CreatorId { get; set; }
         [Ignore]
         public virtual User? Creator { get; set; }

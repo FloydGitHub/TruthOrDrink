@@ -42,10 +42,12 @@ public partial class QuestionCreatePage : ContentPage
             Text = QuestionEntry.Text,
             Category = chosenCategory,
             CategoryId = chosenCategory.Id,
+            CreatorId = CurrentUser.Id,
             Level = LevelPicker.SelectedIndex + 1,
             CustomQuestion = true,
             PhotoQuestion = false,
         };
+        App.DBRepository.AddOrUpdateQuestion(newQuestion);
         Navigation.PopAsync();
     }
 }

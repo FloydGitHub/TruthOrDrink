@@ -49,7 +49,13 @@ namespace TruthOrDrink.DatabaseInfo
         {
             try
             {
-                return connection.Table<Question>().ToList();
+                List<Question> questions = connection.Table<Question>().ToList();
+                List<Category> categories = Category.GetCategories();
+                foreach (Question question in questions)
+                {
+                    question.Category = categories.FirstOrDefault(c => c.Id == question.CategoryId);
+                }
+                return questions;
             }
             catch (Exception ex)
             {
@@ -61,8 +67,8 @@ namespace TruthOrDrink.DatabaseInfo
         {
             try
             {
-                List<Question> questions = connection.Table<Question>().Where(q => q.CreatorId == UserId).ToList();
-                return questions;
+                List<Question> questions = GetQuestions();
+                return questions.Where(q => q.CreatorId == UserId).ToList();
             }
             catch (Exception ex)
             {

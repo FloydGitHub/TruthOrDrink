@@ -42,6 +42,8 @@ public partial class QuestionEditPage : ContentPage
             chosenCategory = categories[2];
         }
         selectedQuestion.Category = chosenCategory;
+        selectedQuestion.CategoryId = chosenCategory.Id;
+        App.DBRepository.AddOrUpdateQuestion(selectedQuestion);
         Navigation.PopAsync();
     }
 }

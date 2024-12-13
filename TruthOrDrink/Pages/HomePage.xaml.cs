@@ -1,4 +1,7 @@
+using TruthOrDrink.APIinfo;
+using TruthOrDrink.APIInfo;
 using TruthOrDrink.Models;
+using TruthOrDrink.Pages.BreweryPages;
 
 namespace TruthOrDrink;
 
@@ -34,7 +37,13 @@ public partial class HomePage : ContentPage
 
     protected override bool OnBackButtonPressed()
     {
-        // Prevent going back to InstructiePage
+        // Prevent going back to previous page
         return true;
+    }
+
+    private void RandomBreweryButton_Clicked(object sender, EventArgs e)
+    {
+
+          Navigation.PushAsync(new VieuwBreweryPage());
     }
 }

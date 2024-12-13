@@ -52,6 +52,16 @@
             TextColor="Black">
         </Button>
 
+        <Button
+            x:Name="RandomBreweryButton"
+            Text="Brouwerij (API)"
+            Margin="20"
+            WidthRequest="150"
+            HorizontalOptions="Center"
+            TextColor="Black"
+            Clicked="RandomBreweryButton_Clicked"/>
+
+
         <ImageButton
         x:Name="Kaartspelbutton"
         Source="Kaartspel.jpg"

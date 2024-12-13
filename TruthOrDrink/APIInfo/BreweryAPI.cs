@@ -12,5 +12,11 @@ namespace TruthOrDrink.APIinfo
         {
             return "https://api.openbrewerydb.org/v1/breweries/random";
         }
+
+        public static string GenerateURLByName(string name)
+        {
+            //getal erachter geeft aan hoeveel brouwerije er terug gegeven worden :)
+            return $"https://api.openbrewerydb.org/v1/breweries?by_name={name}&per_page=3";
+        }
     }
 }

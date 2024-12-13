@@ -31,5 +31,24 @@ namespace TruthOrDrink.APIinfo
                 return breweries;
             }
         }
+        public async static Task<List<Brewery>> GetBreweryByName(string name)
+        {
+            List<Brewery> breweries = new List<Brewery>();
+            string url = BreweryAPI.GenerateURLByName(name);
+            using (HttpClient client = new HttpClient())
+            {
+                try
+                {
+                    var response = await client.GetAsync(url);
+                    var json = await response.Content.ReadAsStringAsync();
+                    breweries = JsonConvert.DeserializeObject<List<Brewery>>(json);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+                return breweries;
+            }
+        }
     }
 }

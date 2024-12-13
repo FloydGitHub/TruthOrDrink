@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TruthOrDrink.Pages.BreweryPages.VieuwBreweryPage"
-             Title="VieuwBreweryPage">
+             Title="VieuwBreweryPage"
+             NavigationPage.HasNavigationBar="False">
     <ScrollView>
     <VerticalStackLayout Padding="10">
         <Label 
@@ -17,7 +18,7 @@
             Clicked="RandomBreweryButton_Clicked">
         </Button>
         <Entry
-            Placeholder="Zoek brouwerij naam"
+            Placeholder="Brouwerij naam"
             Margin="10"
             x:Name="SearchBreweryEntry"
             Background="White"

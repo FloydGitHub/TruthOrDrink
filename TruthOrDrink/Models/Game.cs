@@ -17,7 +17,6 @@ namespace TruthOrDrink.Models
         [Required]
         public DateTime StartingMoment { get; set; }
         public bool Finnished { get; set; }
-        public bool Saved { get; set; }
         public bool CustomQuestionsAllowed { get; set; }
         public bool StandardQuestionsAllowed { get; set; }
         public bool LevelOneAllowed { get; set; }

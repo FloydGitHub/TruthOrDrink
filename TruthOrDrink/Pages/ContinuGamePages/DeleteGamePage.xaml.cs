@@ -13,6 +13,7 @@ public partial class DeleteGamePage : ContentPage
     }
     private void DeleteButton_Clicked(object sender, EventArgs e)
     {
+        App.DBRepository.DeleteGame(SelectedGame);
         Navigation.PopAsync();
     }
     private void BackButton_Clicked(object sender, EventArgs e)

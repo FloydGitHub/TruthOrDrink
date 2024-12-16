@@ -49,6 +49,33 @@ namespace TruthOrDrink.DatabaseInfo
             }
         }
 
+        public User GetUser(string username, string password)
+        {
+            try
+            {
+                User user = connection.Table<User>().FirstOrDefault(u => u.Username == username && u.Password == password);
+                return user;
+            }
+            catch (Exception ex)
+            {
+                StatusMessage = $"Failed to retrieve user: {ex.Message}";
+                return new User();
+            }
+        }
+
+        public void AddUser(User user)
+        {
+            try
+            {
+                connection.Insert(user);
+                StatusMessage = "User added";
+            }
+            catch (Exception ex)
+            {
+                StatusMessage = $"Error: {ex.Message}";
+            }
+        }
+
         public List<Question> GetQuestions()
         {
             try
@@ -72,7 +99,8 @@ namespace TruthOrDrink.DatabaseInfo
             try
             {
                 List<Question> questions = GetQuestions();
-                return questions.Where(q => q.CreatorId == UserId).ToList();
+                questions = questions.Where(q => q.CreatorId == UserId).ToList();
+                return questions;
             }
             catch (Exception ex)
             {

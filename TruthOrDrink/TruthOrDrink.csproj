@@ -56,6 +56,15 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <AndroidResource Remove="MVVM\**" />
+	  <Compile Remove="MVVM\**" />
+	  <EmbeddedResource Remove="MVVM\**" />
+	  <MauiCss Remove="MVVM\**" />
+	  <MauiXaml Remove="MVVM\**" />
+	  <None Remove="MVVM\**" />
+	</ItemGroup>
+
+	<ItemGroup>
 	  <None Remove="Resources\AppIcon\truthordrinklogo.svg" />
 	  <None Remove="Resources\Splash\splashscreen.svg" />
 	</ItemGroup>
@@ -125,10 +134,9 @@
 	  <MauiXaml Update="Pages\QuestionCrudPages\QuestionIndexPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	</ItemGroup>
-
-	<ItemGroup>
-	  <Folder Include="MVVM\" />
+	  <MauiXaml Update="Pages\RegisterPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	</ItemGroup>
 
 </Project>

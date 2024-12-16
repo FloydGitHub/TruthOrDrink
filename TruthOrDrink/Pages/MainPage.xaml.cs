@@ -1,4 +1,5 @@
 ﻿using TruthOrDrink.Models;
+using TruthOrDrink.Pages;
 
 namespace TruthOrDrink
 {
@@ -24,11 +25,21 @@ namespace TruthOrDrink
             { PasswordEntry.Placeholder = "Vul iets in!"; }
             else
             {
-                User user = App.DBRepository.GetOrAddUser(UsernameEntry.Text, PasswordEntry.Text);
+                User user = App.DBRepository.GetUser(UsernameEntry.Text, PasswordEntry.Text);
+                if (user == null)
+                {
+                    DisplayAlert("Fout", "Gebruikersnaam of wachtwoord is onjuist", "Ok");
+                    return;
+                }
                 Navigation.PushAsync(new HomePage(user));
             }
 
         }
+        private void RegisterButton_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new RegisterPage());
+        }
+
     }
 
 }

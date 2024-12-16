@@ -21,6 +21,7 @@
         <Entry
             x:Name="QuestionEntry"
             Placeholder=""
+            MaxLength="200"
             VerticalOptions="Center" 
             HorizontalOptions="Center"
             WidthRequest="200"

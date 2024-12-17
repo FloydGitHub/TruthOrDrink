@@ -62,7 +62,7 @@
         <!-- Eigenaar Section with Border -->
         <Border Background="Red" Padding="5" WidthRequest="300">
             <StackLayout>
-                <Label Text="Soorte vrgen" FontAttributes="Bold" FontSize="Small" HorizontalOptions="Center"/>
+                <Label Text="Soorte vragen" FontAttributes="Bold" FontSize="Small" HorizontalOptions="Center"/>
                 <StackLayout Orientation="Vertical" Spacing="-10">
                     <HorizontalStackLayout>
                         <CheckBox x:Name="CheckBoxCustom" CheckedChanged="OnCustomCheckBoxCheckedChanged"/>

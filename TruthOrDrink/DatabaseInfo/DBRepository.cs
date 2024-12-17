@@ -25,30 +25,8 @@ namespace TruthOrDrink.DatabaseInfo
             connection.CreateTable<GameCategory>();
         }
 
-        public User GetOrAddUser(string username, string password)
-        {
-            try
-            {
 
-                User user = connection.Table<User>().FirstOrDefault(u => u.Username == username && u.Password == password);
-                if (user == null)
-                {
-                    user = new User
-                    {
-                        Username = username,
-                        Password = password
-                    };
-                    connection.Insert(user);
-                }
-                return user;
-            }
-            catch (Exception ex)
-            {
-                StatusMessage = $"Failed to add user: {ex.Message}";
-                return new User();
-            }
-        }
-
+       
         public User GetUser(string username, string password)
         {
             try
@@ -63,12 +41,36 @@ namespace TruthOrDrink.DatabaseInfo
             }
         }
 
-        public void AddUser(User user)
+        public User? GetLoggedInUser()
         {
             try
             {
-                connection.Insert(user);
-                StatusMessage = "User added";
+                User user = connection.Table<User>().FirstOrDefault(u => u.IsLoggedInUser == true);
+                return user;
+            }
+            catch (Exception ex)
+            {
+                StatusMessage = $"Failed to retrieve user: {ex.Message}";
+                return null;
+            }
+        }
+
+        public void AddOrUpdateUser(User user)
+        {
+            try
+            {
+                if (user.Id != 0)
+                {
+                    connection.Update(user);
+                    StatusMessage = "User updated";
+                    return;
+                }
+                else
+                {
+                    connection.Insert(user);
+                    StatusMessage = "User added";
+                    return;
+                }
             }
             catch (Exception ex)
             {
@@ -145,7 +147,6 @@ namespace TruthOrDrink.DatabaseInfo
                 StatusMessage = $"Error: {ex.Message}";
             }
         }
-
 
         public void AddOrUpdateCategories()
         {

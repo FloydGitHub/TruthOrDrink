@@ -12,6 +12,11 @@ namespace TruthOrDrink
             InitializeComponent();
             StatusBar.StatusBarColor = Colors.Red;
             StatusBar.StatusBarStyle = CommunityToolkit.Maui.Core.StatusBarStyle.LightContent;
+            User? LoggedInUser = App.DBRepository.GetLoggedInUser();
+            if (LoggedInUser != null)
+            {
+                Navigation.PushAsync(new HomePage(LoggedInUser));
+            }
         }
 
         private void LoginButton_Clicked(object sender, EventArgs e)
@@ -31,6 +36,8 @@ namespace TruthOrDrink
                     DisplayAlert("Fout", "Gebruikersnaam of wachtwoord is onjuist", "Ok");
                     return;
                 }
+                user.IsLoggedInUser = true;
+                App.DBRepository.AddOrUpdateUser(user);
                 Navigation.PushAsync(new HomePage(user));
             }
 

@@ -68,6 +68,9 @@ namespace TruthOrDrink.Models
         // vragen moeten uit DB komen
         public void FilterQuestions()
         {
+            Question.FillStandardQuestion();
+
+
             DBRepository dBRepository = new DBRepository();
             List<Question> questions = dBRepository.GetQuestions();
             //Standaard/Custom filter

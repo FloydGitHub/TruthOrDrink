@@ -17,6 +17,7 @@ namespace TruthOrDrink.Models
         public string? Username { get; set; }
         [Column("Password"), NotNull]
         public string? Password { get; set; }
+        public bool IsLoggedInUser { get; set; }
         [Ignore]
         public virtual ICollection<Player>? MyPlayers { get; set; }
         [Ignore]

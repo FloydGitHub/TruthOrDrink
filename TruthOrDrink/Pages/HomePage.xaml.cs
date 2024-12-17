@@ -46,4 +46,11 @@ public partial class HomePage : ContentPage
 
           Navigation.PushAsync(new VieuwBreweryPage());
     }
+
+    private void LogOutButton_Clicked(object sender, EventArgs e)
+    {
+        CurrentUser.IsLoggedInUser = false;
+        App.DBRepository.AddOrUpdateUser(CurrentUser);
+        Navigation.PopAsync();
+    }
 }

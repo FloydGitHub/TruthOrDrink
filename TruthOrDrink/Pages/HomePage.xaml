@@ -21,51 +21,76 @@
                 VerticalOptions="Center"
                 FontSize="25"/>
         </Border>
-        <Button
-            x:Name="NewGameButton"
-            Text="Nieuw spel"
-            Margin="25"
-            WidthRequest="150"
-            HorizontalOptions="Center"
-            TextColor="Black"
-            Clicked="NewGameButton_Clicked">
-        </Button>
+        
+        <!--Grid met knoppen-->
+        <Grid Margin="10" RowSpacing="10" ColumnSpacing="10" HorizontalOptions="Center"
+                  VerticalOptions="Center">
+            <!-- zet 2 rijenen and 2 colomment -->
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Buttons -->
+            <Button
+                x:Name="NewGameButton"
+                Text="Nieuw spel"
+                WidthRequest="150"
+                HeightRequest="50"
+                Margin="0,50"
+                Grid.Row="0" Grid.Column="0"
+                Clicked="NewGameButton_Clicked"
+                TextColor="Black"/>
+
+            <Button
+                x:Name="ContinuButton"
+                Text="Spel hervatten"
+                WidthRequest="150"
+                HeightRequest="50"
+                Margin="10"
+                Grid.Row="0" Grid.Column="1"
+                Clicked="ContinuButton_Clicked"
+                TextColor="Black"/>
+
+            <Button
+                x:Name="QuestionIndexButton"
+                Text="Vragen beheren"
+                WidthRequest="150"
+                HeightRequest="50"
+                Margin="0,0"
+                Grid.Row="1" Grid.Column="0"
+                Clicked="QuestionIndexButton_Clicked"
+                TextColor="Black"/>
+
+            <Button
+                x:Name="RandomBreweryButton"
+                Text="Brouwerij (API)"
+                WidthRequest="150"
+                HeightRequest="50"
+                Grid.Row="1" Grid.Column="1"
+                Clicked="RandomBreweryButton_Clicked"
+                TextColor="Black"/>
+        </Grid>
 
         <Button
-            x:Name="ContinuButton"
-            Text="Spel hervatten"
-            Margin="25"
+            x:Name="LogOutButton"
+            Text="Uitloggen"
             WidthRequest="150"
-            HorizontalOptions="Center"
-            TextColor="Black"
-            Clicked="ContinuButton_Clicked">
-
-        </Button>
-
-        <Button
-            x:Name="QuestionIndexButton"
-            Text="Vragen beheren"
-            Clicked="QuestionIndexButton_Clicked"
-            Margin="25"
-            WidthRequest="150"
-            HorizontalOptions="Center"
-            TextColor="Black">
-        </Button>
-
-        <Button
-            x:Name="RandomBreweryButton"
-            Text="Brouwerij (API)"
-            Margin="20"
-            WidthRequest="150"
-            HorizontalOptions="Center"
-            TextColor="Black"
-            Clicked="RandomBreweryButton_Clicked"/>
+            Margin="0,50,0,0"
+            HeightRequest="50"
+            Clicked="LogOutButton_Clicked"
+            TextColor="Black"/>
 
 
         <ImageButton
         x:Name="Kaartspelbutton"
         Source="Kaartspel.jpg"
         HeightRequest="100"
+            Margin="0,50,0,0"
         Clicked="OnKaartspelButtonClicked"
         BackgroundColor="#C9ADAD"/>
         <Label

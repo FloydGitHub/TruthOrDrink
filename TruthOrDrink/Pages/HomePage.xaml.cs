@@ -26,7 +26,7 @@ public partial class HomePage : ContentPage
     }
     private void NewGameButton_Clicked(object sender, EventArgs e)
     {
-        Navigation.PushAsync(new Pages.NewGamePages.TabbedGameSetUpPage());
+        Navigation.PushAsync(new Pages.NewGamePages.SetRulesPage(CurrentUser));
     }
 
     private async void OnKaartspelButtonClicked(object sender, EventArgs e)

@@ -1,54 +1,81 @@
 using TruthOrDrink.Models;
 using TruthOrDrink.Pages.GamePlayPages;
+using Microsoft.Maui.Controls;
 
 namespace TruthOrDrink.Pages.NewGamePages;
 
 public partial class AddPlayerPage : ContentPage
 {
-    //is gedaan omdat ik hier  nog geen waarders kan doorgeven met de tabbed ding
-    User testUser = new User { Id = 1, Username = "TestUser" };
-    public AddPlayerPage()
+
+    public User CurrentUser { get; set; }
+    public Game NewGame { get; set; }
+    public List<Player> Players { get; set; }
+    public AddPlayerPage(User user, Game game)
 	{
+        CurrentUser = user;
+        NewGame = game;
         InitializeComponent();
-	}
+        Player Host = new Player
+        {
+            Name = CurrentUser.Username,
+            UserId = CurrentUser.Id,
+            IsHost = true,
+            Answers = 0,
+            Drinks = 0,
+            TwistCard = 3
+        };
+
+        Players = new List<Player>
+        {
+            Host
+        };
+        PlayerListView.ItemsSource = Players;
+    }
 
 	private void StartGameButton_Clicked(object sender, EventArgs e)
     {
-        InitializeComponent();
-        Category category = new Category()
-        {
-            Id = 1,
-            Name = "Category 1",
-            Description = "Description 1"
-        };
-        Player player = new Player()
-        {
-            Id = 1,
-            Name = "Player 1",
-            TwistCard = 3,
-            Drinks = 0,
-            Answers = 0,
-        };
-        Player player2 = new Player()
-        {
-            Id = 2,
-            Name = "Player 2",
-            TwistCard = 3,
-            Drinks = 0,
-            Answers = 0,
-        };
-        Game game = new Game()
-        {
-            Id = 1,
-            Categories = new List<Category> { category },
-            Players = new List<Player> { player, player2 },
-            StartingMoment = DateTime.Now,
-            CustomQuestionsAllowed = true,
-            LevelOneAllowed = true,
-        };
+       NewGame.Players = Players;
+        Navigation.PushAsync(new QuestionPage(NewGame, CurrentUser));
 
-        game.FilterQuestions();
+    }
+    private void BackButton_Clicked(object sender, EventArgs e)
+    {
+        Navigation.PopAsync();
+    }
+    private void AddPlayerButton_Clicked(object sender, EventArgs e)
+    {
+        if (string.IsNullOrEmpty(PlayerNameEntry.Text))
+        {
+            PlayerNameEntry.Placeholder = "Naam mag niet leeg zijn";
+            return;
+        }
+        else if (PlayerNameEntry.Text.Length > 20)
+        {
+            PlayerNameEntry.Text = "";
+            PlayerNameEntry.Placeholder = "Naam mag niet langer zijn dan 20 karakters";
+            return;
+        }
+        else
+        {
+            Player player = new Player
+            {
+                Name = PlayerNameEntry.Text,
+                IsHost = false,
+                Answers = 0,
+                Drinks = 0,
+                TwistCard = 3
+            };
+            Players.Add(player);
+            PlayerListView.ItemsSource = null; // Herbind de lijst om de UI bij te werken
+            PlayerListView.ItemsSource = Players;
 
-        Navigation.PushAsync(new QuestionPage(game, testUser));
+            PlayerNameEntry.Text = "";
+            if (Players.Count == 4)
+            {
+                AddPlayerButton.IsEnabled = false;
+                AddPlayerButton.Text = "Maximaal aantal spelers zijn toegevoegd";
+                AddPlayerButton.BackgroundColor = Color.FromHex("#808080");
+            }
+        }
     }
 }

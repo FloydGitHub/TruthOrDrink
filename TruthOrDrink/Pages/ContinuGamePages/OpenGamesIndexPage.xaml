@@ -7,7 +7,7 @@
     <ScrollView>
         <VerticalStackLayout>
             <Label 
-                Text="Alle opestaande games: "
+                Text="Alle opestaande spellen: "
                 FontSize="Medium"
                 Margin="5"
                 VerticalOptions="Center" 

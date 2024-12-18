@@ -1,9 +1,13 @@
+using TruthOrDrink.Models;
+
 namespace TruthOrDrink.Pages.NewGamePages;
 
 public partial class SetRulesPage : ContentPage
 {
-    public SetRulesPage()
+    public User CurrentUser { get; set; }
+    public SetRulesPage(User user)
     {
+        CurrentUser = user;
         InitializeComponent();
         CheckBoxLevel1.IsChecked = true;
         CheckBoxCategoryStandaard.IsChecked = true;
@@ -44,6 +48,64 @@ public partial class SetRulesPage : ContentPage
         {
             currentCheckbox.IsChecked = true;
         }
+    }
+    private void BackkButton_Clicked(object sender, EventArgs e)
+    {
+        Navigation.PopAsync();
+    }
+
+    private void ContinueButton_Clicked(object sender, EventArgs e)
+    {
+        Game Newgame = new Game
+        {
+            Id = 0,
+            StartingMoment = DateTime.Now,
+            Categories = new List<Category>(),
+        };
+        if (CheckBoxCustom.IsChecked)
+        {
+            Newgame.CustomQuestionsAllowed = true;
+        }
+        if (CheckBoxStandard.IsChecked)
+        {
+            Newgame.StandardQuestionsAllowed = true;
+        }
+        if (CheckBoxLevel1.IsChecked)
+        {
+            Newgame.LevelOneAllowed = true;
+        }
+        if (CheckBoxLevel2.IsChecked)
+        {
+            Newgame.LevelTwoAllowed = true;
+        }
+        if (CheckBoxLevel3.IsChecked)
+        {
+            Newgame.LevelThreeAllowed = true;
+        }
+        if (CheckBoxLevel4.IsChecked)
+        {
+            Newgame.LevelFourAllowed = true;
+        }
+        if (CheckBoxLevel5.IsChecked)
+        {
+            Newgame.LevelFiveAllowed = true;
+        }
+        List<Category> Categories = Category.GetCategories();
+        if (CheckBoxCategoryStandaard.IsChecked)
+        {
+            Newgame.Categories.Add(Categories[0]);
+        }
+        if (CheckBoxCategorySpicy.IsChecked)
+        {
+            Newgame.Categories.Add(Categories[1]);
+        }
+        if (CheckBoxCategorySpecial.IsChecked)
+        {
+            Newgame.Categories.Add(Categories[2]);
+        }
+        Newgame.FilterQuestions();
+        Navigation.PushAsync(new AddPlayerPage(CurrentUser, Newgame));
+
     }
 
 }

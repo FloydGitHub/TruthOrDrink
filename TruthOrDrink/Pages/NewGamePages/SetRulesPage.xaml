@@ -4,6 +4,7 @@
              x:Class="TruthOrDrink.Pages.NewGamePages.SetRulesPage"
              Title="SetRulesPage"
              NavigationPage.HasNavigationBar="False">
+    <ScrollView>
     <StackLayout Padding="10" Spacing="5">
         <Label
         Text="Stel je regels samen"
@@ -75,5 +76,19 @@
                 </StackLayout>
             </StackLayout>
         </Border>
+        <Button
+            x:Name="ContinueButton"
+            Text="Verder"
+            Margin="10"
+            Clicked="ContinueButton_Clicked"
+            VerticalOptions="Center"
+            HorizontalOptions="Center"/>
+        <Button
+            x:Name="BackButton"
+            Text="Terug"
+            Clicked="BackButton_Clicked"
+            VerticalOptions="Center"
+            HorizontalOptions="Center"/>
     </StackLayout>
+    </ScrollView>
 </ContentPage>

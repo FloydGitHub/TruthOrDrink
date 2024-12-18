@@ -23,6 +23,7 @@ namespace TruthOrDrink.Models
         public bool LevelThreeAllowed { get; set; }
         public bool LevelFourAllowed { get; set; }
         public bool LevelFiveAllowed { get; set; }
+        public bool IsSaved { get; set; }
         [Ignore]
         public virtual ICollection<Player>? Players { get; set; }
         [Ignore]
@@ -37,8 +38,6 @@ namespace TruthOrDrink.Models
                 return string.Join(" + ", Players.Select(p => p.Name));
             }
         }
-
-
 
 
         public Question GetNextQuestion()
@@ -63,6 +62,8 @@ namespace TruthOrDrink.Models
             Players.Remove(Players.FirstOrDefault(p => p.Id == playerToUpdate.Id));
             Players.Add(playerToUpdate);
         }
+
+
 
         // Filter van levels en custom/standard
         // vragen moeten uit DB komen
@@ -96,6 +97,14 @@ namespace TruthOrDrink.Models
             QuestionsToAsk = questions;
             return;
             
+        }
+        public void SetPlayers(List<Player> players)
+        {
+            Players = players;
+        }
+        public void SetStartingMoment()
+        {
+            StartingMoment = DateTime.Now;
         }
     }
 }

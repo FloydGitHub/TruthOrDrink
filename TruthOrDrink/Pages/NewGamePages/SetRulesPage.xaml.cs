@@ -59,7 +59,6 @@ public partial class SetRulesPage : ContentPage
         Game Newgame = new Game
         {
             Id = 0,
-            StartingMoment = DateTime.Now,
             Categories = new List<Category>(),
         };
         if (CheckBoxCustom.IsChecked)

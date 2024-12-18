@@ -34,6 +34,7 @@ public partial class OpenGamesIndexPage : ContentPage
         var button = sender as Button;
         if (button?.CommandParameter is Game selectedGame)
         {
+            selectedGame.IsSaved = false;
             selectedGame.FilterQuestions();
             Navigation.PushAsync(new QuestionPage(selectedGame, CurrentUser));
         }

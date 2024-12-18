@@ -27,6 +27,7 @@ public partial class StandingsPage : ContentPage
     }
     private void SaveGameButton_Clicked(object sender, EventArgs e)
     {
+        CurrentGame.IsSaved = true;
         App.DBRepository.AddorUpdateGame(CurrentGame);
         Navigation.PushAsync(new HomePage(CurrentUser));
     }

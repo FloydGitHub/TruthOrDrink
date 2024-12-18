@@ -34,6 +34,11 @@ public partial class AddPlayerPage : ContentPage
 
 	private void StartGameButton_Clicked(object sender, EventArgs e)
     {
+        if (Players.Count < 2)
+        {
+            PlayerNameEntry.Placeholder = "Voeg minimaal 1 extra speler toe";
+            return;
+        }
         NewGame.SetPlayers(Players);
         NewGame.SetStartingMoment();
 

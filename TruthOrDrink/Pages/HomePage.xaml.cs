@@ -51,6 +51,6 @@ public partial class HomePage : ContentPage
     {
         CurrentUser.IsLoggedInUser = false;
         App.DBRepository.AddOrUpdateUser(CurrentUser);
-        Navigation.PopAsync();
+        Navigation.PopToRootAsync();
     }
 }

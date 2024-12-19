@@ -46,10 +46,18 @@
             Text="Voeg speler toe"
             VerticalOptions="Center"
             HorizontalOptions="Center"
-            Margin="0,10,0,40"
+            Margin="0,10,0,10"
             WidthRequest="300"
             Clicked="AddPlayerButton_Clicked"/>
 
+        <Button
+            x:Name="AddPlayerWithContactButton"
+            Text="Voeg speler toe met contact"
+            VerticalOptions="Center"
+            HorizontalOptions="Center"
+            Margin="0,10,0,10"
+            WidthRequest="300"
+            Clicked="AddPlayerWithContact_Clicked"/>
 
 
         <Button

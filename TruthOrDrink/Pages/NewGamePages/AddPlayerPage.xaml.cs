@@ -1,6 +1,7 @@
 using TruthOrDrink.Models;
 using TruthOrDrink.Pages.GamePlayPages;
 using Microsoft.Maui.Controls;
+using Microsoft.Maui.ApplicationModel.Communication;
 
 namespace TruthOrDrink.Pages.NewGamePages;
 
@@ -82,7 +83,64 @@ public partial class AddPlayerPage : ContentPage
                 AddPlayerButton.IsEnabled = false;
                 AddPlayerButton.Text = "Maximaal aantal spelers zijn toegevoegd";
                 AddPlayerButton.BackgroundColor = Color.FromHex("#808080");
+                AddPlayerWithContactButton.IsEnabled = false;
+                AddPlayerWithContactButton.BackgroundColor = Color.FromHex("#808080");
+                AddPlayerWithContactButton.Text = "Maximaal aantal spelers zijn toegevoegd";
             }
+        }
+    }
+
+    private async void AddPlayerWithContact_Clicked(object sender, EventArgs e)
+    {
+        string message = "";
+        try
+        {
+            var contact = await Contacts.Default.PickContactAsync();
+
+            if (contact == null)
+            { return; }
+
+            string givenName = contact.GivenName;
+            if (string.IsNullOrEmpty(givenName))
+            {
+                DisplayAlert("Error", "De naam van het contact mag niet leeg zijn", "OK");
+                return;
+            }
+            else if (givenName.Length > 20)
+            {
+                DisplayAlert("Error", "De naam van het contact mag niet langer dan 20 tekens zijn", "OK");
+                return;
+            }
+            else
+            {
+                Player player = new Player
+                {
+                    Name = givenName,
+                    IsHost = false,
+                    Answers = 0,
+                    Drinks = 0,
+                    TwistCard = 3
+                };
+                Players.Add(player);
+                PlayerListView.ItemsSource = null; // Herbind de lijst om de UI bij te werken
+                PlayerListView.ItemsSource = Players;
+                PlayerNameEntry.Text = "";
+                if (Players.Count == 4)
+                {
+                    AddPlayerButton.IsEnabled = false;
+                    AddPlayerButton.Text = "Maximaal aantal spelers zijn toegevoegd";
+                    AddPlayerButton.BackgroundColor = Color.FromHex("#808080");
+                    AddPlayerWithContactButton.IsEnabled = false;
+                    AddPlayerWithContactButton.BackgroundColor = Color.FromHex("#808080");
+                    AddPlayerWithContactButton.Text = "Maximaal aantal spelers zijn toegevoegd";
+                }
+            }
+
+
+        }
+        catch (Exception ex)
+        {
+            message = ex.Message;
         }
     }
 }

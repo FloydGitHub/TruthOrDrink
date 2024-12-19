@@ -1,3 +1,4 @@
+using TruthOrDrink.APIInfo;
 using TruthOrDrink.Models;
 
 namespace TruthOrDrink.Pages.GamePlayPages;
@@ -11,8 +12,11 @@ public partial class QuestionPage : ContentPage
     // guvenQuestion en pickedPlayer worden alleen gebruikt nadat een twistcard is gespeeld.
     public QuestionPage(Game game, User currentUser, Question? givenQuestion = null, Player? pickedPlayer = null)
     {
+
         CurrentUser = currentUser;
         InitializeComponent();
+
+
         currentGame = game;
         if (givenQuestion == null)
         {
@@ -28,6 +32,15 @@ public partial class QuestionPage : ContentPage
         }
         else
         {
+            if (questionToAsk.PhotoQuestion)
+            {
+                JokeFrame.IsVisible = false;
+            }
+            else
+            {
+                BindingContext = new Joke();
+                AddJoke();
+            }
             if (pickedPlayer == null)
             {
                 playerToAsk = game.GetPlayerToAskQuestion();
@@ -82,5 +95,13 @@ public partial class QuestionPage : ContentPage
     {
         // Prevent going back to InstructiePage
         return true;
+    }
+    private async void AddJoke()
+    {
+        // Fetch the joke asynchronously
+        var joke = await JokeLogic.GetRandomJoke();
+
+        // Update the BindingContext with the fetched joke
+        BindingContext = joke;
     }
 }

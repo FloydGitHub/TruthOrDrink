@@ -53,4 +53,5 @@ public partial class HomePage : ContentPage
         App.DBRepository.AddOrUpdateUser(CurrentUser);
         Navigation.PopToRootAsync();
     }
+
 }

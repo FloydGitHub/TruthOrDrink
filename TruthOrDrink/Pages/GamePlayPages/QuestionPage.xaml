@@ -21,7 +21,7 @@
         </Border>
         <HorizontalStackLayout
             HorizontalOptions="Center"
-            Margin="40">
+            Margin="10">
             <Button
                 x:Name="TruthButton"
                 Text="Waarheid"
@@ -52,7 +52,7 @@
             Text="Speel Doorschuiver"
             VerticalOptions="Center"
             HorizontalOptions="Center"
-            Margin="30"
+            Margin="10"
             Clicked="TwistCardButton_Clicked">
         </Button>
         <Button
@@ -60,8 +60,32 @@
             Text="Stand"
             VerticalOptions="Center"
             HorizontalOptions="Center"
-            Margin="60"
+            Margin="20"
             Clicked="StandingsButton_Clicked">
         </Button>
+        <Frame Padding="15" BackgroundColor="#F5F5F5" CornerRadius="10" HasShadow="False" Margin="10" x:Name="JokeFrame" >
+                <StackLayout Spacing="10">
+                    <Label 
+            Text="Een mop voor als je aan het wachten bent op een andere speler:"
+            FontSize="14" 
+            TextColor="DarkSlateGray"
+            HorizontalTextAlignment="Center" />
+
+                    <Label 
+            Text="{Binding Setup}" 
+            FontSize="12" 
+            TextColor="Black" 
+            HorizontalTextAlignment="Center" />
+
+                    <Label 
+            Text="{Binding Punchline}" 
+            FontSize="12" 
+            FontAttributes="Italic" 
+            TextColor="Gray" 
+            HorizontalTextAlignment="Center" />
+                </StackLayout>
+            </Frame>
+
+
     </VerticalStackLayout>
 </ContentPage>

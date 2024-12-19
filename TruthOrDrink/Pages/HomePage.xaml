@@ -85,7 +85,6 @@
             Clicked="LogOutButton_Clicked"
             TextColor="Black"/>
 
-
         <ImageButton
         x:Name="Kaartspelbutton"
         Source="Kaartspel.jpg"

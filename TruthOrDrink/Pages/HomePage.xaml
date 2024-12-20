@@ -21,21 +21,23 @@
                 VerticalOptions="Center"
                 FontSize="25"/>
         </Border>
+
         
-        <!--Grid met knoppen-->
         <Grid Margin="10" RowSpacing="10" ColumnSpacing="10" HorizontalOptions="Center"
                   VerticalOptions="Center">
-            <!-- zet 2 rijenen and 2 colomment -->
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="Auto"/>
-            </Grid.ColumnDefinitions>
 
-            <!-- Buttons -->
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+
             <Button
                 x:Name="NewGameButton"
                 Text="Nieuw spel"
@@ -74,17 +76,32 @@
                 Grid.Row="1" Grid.Column="1"
                 Clicked="RandomBreweryButton_Clicked"
                 TextColor="Black"/>
+
+
+             <Button
+                x:Name="ContactButton"
+                Text="Contact"
+                WidthRequest="150"
+                HeightRequest="50"
+                Grid.Row="2" Grid.Column="0"
+                Margin="0,50,0,0"
+                Clicked="ContactButton_Clicked"
+                TextColor="Black"/>
+                
+             <Button
+                x:Name="LogOutButton"
+                Text="Uitloggen"
+                WidthRequest="150"
+                Margin="0,50,0,0"
+                HeightRequest="50"
+                Grid.Row="2" Grid.Column="1"
+                Clicked="LogOutButton_Clicked"
+                TextColor="Black"/>
+
+
         </Grid>
-
-        <Button
-            x:Name="LogOutButton"
-            Text="Uitloggen"
-            WidthRequest="150"
-            Margin="0,50,0,0"
-            HeightRequest="50"
-            Clicked="LogOutButton_Clicked"
-            TextColor="Black"/>
-
+            
+            
         <ImageButton
         x:Name="Kaartspelbutton"
         Source="Kaartspel.jpg"

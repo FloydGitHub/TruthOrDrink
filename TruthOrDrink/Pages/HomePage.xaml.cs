@@ -54,4 +54,25 @@ public partial class HomePage : ContentPage
         Navigation.PopToRootAsync();
     }
 
+    private async void ContactButton_Clicked(object sender, EventArgs e)
+    {
+        if (Email.Default.IsComposeSupported)
+        {
+
+            string subject = "Contact Truth or Drink app";
+            string body = "Ik wil graag het volgende melden/vragen: ";
+            string[] recipients = new[] { "TruthOrDrink@gmail.com" };
+
+            var message = new EmailMessage
+            {
+                Subject = subject,
+                Body = body,
+                BodyFormat = EmailBodyFormat.PlainText,
+                To = new List<string>(recipients)
+            };
+
+            await Email.Default.ComposeAsync(message);
+        }
+    }
+
 }

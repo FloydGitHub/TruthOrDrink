@@ -92,6 +92,20 @@ public partial class AddPlayerPage : ContentPage
 
     private async void AddPlayerWithContact_Clicked(object sender, EventArgs e)
     {
+        PermissionStatus status = await Permissions.CheckStatusAsync<Permissions.ContactsRead>();
+
+        if (Permissions.ShouldShowRationale<Permissions.ContactsRead>())
+        {
+            status = await Permissions.RequestAsync<Permissions.ContactsRead>();
+            if (status != PermissionStatus.Granted)
+            {
+                await DisplayAlert("Toestemming vereist", "Deze app heeft toegang tot je contacten nodig om een speler te kunnen toevoegen op deze manier.", "OK");
+                return;
+            }
+
+        }
+
+        //speler toevoegen met contact
         string message = "";
         try
         {
@@ -143,4 +157,6 @@ public partial class AddPlayerPage : ContentPage
             message = ex.Message;
         }
     }
+
+
 }

@@ -13,9 +13,11 @@ public partial class QuestionPage : ContentPage
     public QuestionPage(Game game, User currentUser, Question? givenQuestion = null, Player? pickedPlayer = null)
     {
 
-        CurrentUser = currentUser;
-        InitializeComponent();
 
+
+        CurrentUser = currentUser;
+            
+        InitializeComponent();
 
         currentGame = game;
         if (givenQuestion == null)
@@ -64,6 +66,7 @@ public partial class QuestionPage : ContentPage
             }
             TwistCardLabel.Text = $"Doorschuivers over: {playerToAsk.TwistCard}";
         }
+        Vibration.Default.Vibrate();
 
     }
 	private void TwistCardButton_Clicked(object sender, EventArgs e)

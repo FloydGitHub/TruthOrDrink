@@ -37,6 +37,7 @@ public partial class QuestionPage : ContentPage
             if (questionToAsk.PhotoQuestion)
             {
                 JokeFrame.IsVisible = false;
+                CameraButton.IsVisible = true;
             }
             else
             {
@@ -107,4 +108,64 @@ public partial class QuestionPage : ContentPage
         // Update the BindingContext with the fetched joke
         BindingContext = joke;
     }
+
+    private async void CameraButton_Clicked(object sender, EventArgs e)
+    {
+        try
+        {
+            // Controleer de machtigingen voor toegang tot de camera. Vraagt erom als deze er nog niet is
+            PermissionStatus cameraStatus = await Permissions.CheckStatusAsync<Permissions.Camera>();
+
+            if (Permissions.ShouldShowRationale<Permissions.Camera>())
+            {
+                cameraStatus = await Permissions.RequestAsync<Permissions.Camera>();
+                if (cameraStatus != PermissionStatus.Granted)
+                {
+                    await DisplayAlert("Toestemming vereist", "Deze app heeft toegang tot de camera nodig om een foto te maken.", "OK");
+                    return;
+                }
+            }
+
+            // Controleer de machtigingen voor toegang tot externe opslag. Vraagt erom als deze er nog niet is
+            PermissionStatus storageStatus = await Permissions.CheckStatusAsync<Permissions.StorageWrite>();
+
+            if (Permissions.ShouldShowRationale<Permissions.StorageWrite>())
+            {
+                storageStatus = await Permissions.RequestAsync<Permissions.StorageWrite>();
+                if (storageStatus != PermissionStatus.Granted)
+                {
+                    await DisplayAlert("Toestemming vereist", "Deze app heeft toegang tot externe opslag nodig om de foto op te slaan.", "OK");
+                    return;
+                }
+            }
+
+            // Controleer of de camera beschikbaar is
+            if (MediaPicker.Default.IsCaptureSupported)
+            {
+                // Open de camera om een foto te maken
+                var photo = await MediaPicker.Default.CapturePhotoAsync();
+
+                if (photo != null)
+                {
+                    // Sla de foto op in een lokaal bestand
+                    var stream = await photo.OpenReadAsync();
+                    var filePath = Path.Combine(FileSystem.AppDataDirectory, photo.FileName);
+
+                    using var fileStream = File.OpenWrite(filePath);
+                    await stream.CopyToAsync(fileStream);
+
+                }
+            }
+            else
+            {
+                await DisplayAlert("Fout", "Camera niet beschikbaar op dit apparaat.", "OK");
+            }
+        }
+        catch (Exception ex)
+        {
+            await DisplayAlert("Fout", $"Er is iets misgegaan: {ex.Message}", "OK");
+        }
+    }
+
+
 }

@@ -41,6 +41,16 @@
                 Clicked="DrinkButton_Clicked">
             </Button>
         </HorizontalStackLayout>
+
+        <Button
+            x:Name="CameraButton"
+            Text="Camera"
+            VerticalOptions="Center"
+            HorizontalOptions="Center"
+            Margin="20"
+            Clicked="CameraButton_Clicked"
+            IsVisible="False"/>
+
         <Label
                 x:Name="TwistCardLabel"
                 Text="Aantal Doorschuivers over: ..."
@@ -63,6 +73,8 @@
             Margin="20"
             Clicked="StandingsButton_Clicked">
         </Button>
+
+
         <Frame Padding="15" BackgroundColor="#F5F5F5" CornerRadius="10" HasShadow="False" Margin="10" x:Name="JokeFrame" >
                 <StackLayout Spacing="10">
                     <Label 

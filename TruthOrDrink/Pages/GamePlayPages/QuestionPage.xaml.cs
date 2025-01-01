@@ -97,17 +97,23 @@ public partial class QuestionPage : ContentPage
     }
     protected override bool OnBackButtonPressed()
     {
-        // Prevent going back to InstructiePage
+
         return true;
     }
     private async void AddJoke()
     {
-        // Fetch the joke asynchronously
-        var joke = await JokeLogic.GetRandomJoke();
-
-        // Update the BindingContext with the fetched joke
-        BindingContext = joke;
+        // Controleer op internetverbinding
+        if (Connectivity.NetworkAccess == NetworkAccess.Internet)
+        {
+            var joke = await JokeLogic.GetRandomJoke();
+            BindingContext = joke;
+        }
+        else
+        {
+            JokeFrame.IsVisible = false;
+        }
     }
+
 
     private async void CameraButton_Clicked(object sender, EventArgs e)
     {

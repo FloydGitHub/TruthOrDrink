@@ -77,52 +77,52 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="Pages\BreweryPages\VieuwBreweryPage.xaml">
+	  <MauiXaml Update="MVVM\Vieuws\BreweryPages\VieuwBreweryPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Pages\ContinuGamePages\DeleteGamePage.xaml">
+	  <MauiXaml Update="MVVM\Vieuws\ContinuGamePages\DeleteGamePage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Pages\ContinuGamePages\OpenGamesIndexPage.xaml">
+	  <MauiXaml Update="MVVM\Vieuws\ContinuGamePages\OpenGamesIndexPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Pages\GamePlayPages\EditRulesPage.xaml">
+	  <MauiXaml Update="MVVM\Vieuws\GamePlayPages\EditRulesPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Pages\GamePlayPages\EndOfTheGamePage.xaml">
+	  <MauiXaml Update="MVVM\Vieuws\GamePlayPages\EndOfTheGamePage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Pages\GamePlayPages\QuestionPage.xaml">
+	  <MauiXaml Update="MVVM\Vieuws\GamePlayPages\QuestionPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Pages\GamePlayPages\StandingsPage.xaml">
+	  <MauiXaml Update="MVVM\Vieuws\GamePlayPages\StandingsPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Pages\GamePlayPages\TwistCardPage.xaml">
+	  <MauiXaml Update="MVVM\Vieuws\GamePlayPages\TwistCardPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Pages\HomePage.xaml">
+	  <MauiXaml Update="MVVM\Vieuws\HomePage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Pages\NewGamePages\AddPlayerPage.xaml">
+	  <MauiXaml Update="MVVM\Vieuws\NewGamePages\AddPlayerPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Pages\NewGamePages\SetRulesPage.xaml">
+	  <MauiXaml Update="MVVM\Vieuws\NewGamePages\SetRulesPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Pages\QuestionCrudPages\QuestionCreatePage.xaml">
+	  <MauiXaml Update="MVVM\Vieuws\QuestionCrudPages\QuestionCreatePage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Pages\QuestionCrudPages\QuestionDeletePage.xaml">
+	  <MauiXaml Update="MVVM\Vieuws\QuestionCrudPages\QuestionDeletePage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Pages\QuestionCrudPages\QuestionEditPage.xaml">
+	  <MauiXaml Update="MVVM\Vieuws\QuestionCrudPages\QuestionEditPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Pages\QuestionCrudPages\QuestionIndexPage.xaml">
+	  <MauiXaml Update="MVVM\Vieuws\QuestionCrudPages\QuestionIndexPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Pages\RegisterPage.xaml">
+	  <MauiXaml Update="MVVM\Vieuws\RegisterPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

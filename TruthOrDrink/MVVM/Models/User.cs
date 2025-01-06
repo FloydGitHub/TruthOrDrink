@@ -22,5 +22,13 @@ namespace TruthOrDrink.Models
         public virtual ICollection<Player>? MyPlayers { get; set; }
         [Ignore]
         public virtual ICollection<Question>? MadeQuestions { get; set; }
+
+
+        public static User GetUser(string username, string password)
+        {
+            User user = App.DBRepository.GetUser(username, password);
+            return user;
+        }
+
     }
 }

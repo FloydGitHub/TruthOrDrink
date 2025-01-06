@@ -30,7 +30,7 @@ namespace TruthOrDrink
             { PasswordEntry.Placeholder = "Vul iets in!"; }
             else
             {
-                User user = App.DBRepository.GetUser(UsernameEntry.Text, PasswordEntry.Text);
+                User user = User.GetUser(UsernameEntry.Text, PasswordEntry.Text);
                 if (user == null)
                 {
                     DisplayAlert("Fout", "Gebruikersnaam of wachtwoord is onjuist", "Ok");

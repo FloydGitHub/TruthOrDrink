@@ -50,7 +50,7 @@ public partial class HomePage : ContentPage
     private void LogOutButton_Clicked(object sender, EventArgs e)
     {
         CurrentUser.IsLoggedInUser = false;
-        App.DBRepository.AddOrUpdateUser(CurrentUser);
+        CurrentUser.AddOrUpdateUser();
         Navigation.PopToRootAsync();
     }
 

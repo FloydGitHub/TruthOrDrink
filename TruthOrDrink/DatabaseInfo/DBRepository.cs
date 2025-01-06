@@ -100,7 +100,7 @@ namespace TruthOrDrink.DatabaseInfo
         {
             try
             {
-                List<Question> questions = GetQuestions();
+                List<Question> questions = Question.GetQuestions();
                 questions = questions.Where(q => q.CreatorId == UserId).ToList();
                 return questions;
             }

@@ -11,7 +11,7 @@ public partial class OpenGamesIndexPage : ContentPage
         CurrentUser = currentUser;
         InitializeComponent();
 
-        List<Game> games = App.DBRepository.GetGamesFromUser(CurrentUser);
+        List<Game> games = Game.GetGamesFromUser(CurrentUser);
         GamesCollectionView.ItemsSource = games;
         CurrentUser = currentUser;
     }
@@ -44,7 +44,7 @@ public partial class OpenGamesIndexPage : ContentPage
     {
         base.OnAppearing();
         
-        List<Game> games = App.DBRepository.GetGamesFromUser(CurrentUser);
+        List<Game> games = Game.GetGamesFromUser(CurrentUser);
         GamesCollectionView.ItemsSource = games;
     }
 

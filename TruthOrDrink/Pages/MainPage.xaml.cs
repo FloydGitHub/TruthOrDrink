@@ -12,7 +12,7 @@ namespace TruthOrDrink
             InitializeComponent();
             StatusBar.StatusBarColor = Colors.Red;
             StatusBar.StatusBarStyle = CommunityToolkit.Maui.Core.StatusBarStyle.LightContent;
-            User? LoggedInUser = App.DBRepository.GetLoggedInUser();
+            User? LoggedInUser = User.GetLoggedInUser();
             if (LoggedInUser != null)
             {
                 Navigation.PushAsync(new HomePage(LoggedInUser));
@@ -37,7 +37,7 @@ namespace TruthOrDrink
                     return;
                 }
                 user.IsLoggedInUser = true;
-                App.DBRepository.AddOrUpdateUser(user);
+                user.AddOrUpdateUser();
                 Navigation.PushAsync(new HomePage(user));
             }
 

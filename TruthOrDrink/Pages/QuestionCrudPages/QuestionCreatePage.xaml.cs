@@ -47,7 +47,7 @@ public partial class QuestionCreatePage : ContentPage
             CustomQuestion = true,
             PhotoQuestion = false,
         };
-        App.DBRepository.AddOrUpdateQuestion(newQuestion);
+        newQuestion.AddOrUpdateQuestion();
         Navigation.PopAsync();
     }
 }

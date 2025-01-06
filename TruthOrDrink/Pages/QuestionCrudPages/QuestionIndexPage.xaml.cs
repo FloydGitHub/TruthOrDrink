@@ -11,7 +11,7 @@ public partial class QuestionIndexPage : ContentPage
     {
         InitializeComponent();
         CurrentUser = currentUser;
-        List<Question> questionsFromUser = App.DBRepository.GetQuestionsFromUser(CurrentUser.Id);
+        List<Question> questionsFromUser = Question.GetQuestionsFromUser(CurrentUser.Id);
 
         QuestionsCollectionView.ItemsSource = questionsFromUser;
     }
@@ -46,7 +46,7 @@ public partial class QuestionIndexPage : ContentPage
         base.OnAppearing();
 
         // Haal de meest recente data op van de gebruiker uit de database
-        List<Question> questionsFromUser = App.DBRepository.GetQuestionsFromUser(CurrentUser.Id);
+        List<Question> questionsFromUser = Question.GetQuestionsFromUser(CurrentUser.Id);
 
         // Update de ItemsSource van de CollectionView
         QuestionsCollectionView.ItemsSource = questionsFromUser;

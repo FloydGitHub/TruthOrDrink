@@ -34,13 +34,13 @@ namespace TruthOrDrink.Models
         public static void FillStandardQuestion()
         {
            
-            List<Question> AllCurrentQuestions = App.DBRepository.GetQuestions();
+            List<Question> AllCurrentQuestions = Question.GetQuestions();
             List<Question> AllCurrentStandardQuestions = AllCurrentQuestions.Where(q => q.CustomQuestion == false).ToList();
             if (AllCurrentStandardQuestions.Count < 45)
             {
 
                 List<Question> questions = new List<Question>
-{
+                {
                 // Categorie 1: Standaard
                 new Question { Text = "Wat is je favoriete kleur en waarom?", Level = 1, CustomQuestion = false, PhotoQuestion = false, CategoryId = 1 },
                 new Question { Text = "Wat is het lekkerste wat je vandaag hebt gegeten?", Level = 1, CustomQuestion = false, PhotoQuestion = false, CategoryId = 1 },
@@ -109,9 +109,30 @@ namespace TruthOrDrink.Models
 
                 foreach (Question question in questions)
                 {
-                    App.DBRepository.AddOrUpdateQuestion(question);
+                    question.AddOrUpdateQuestion();
                 }
             }
+        }
+        public static List<Question> GetQuestions()
+        {
+            List<Question> questions = App.DBRepository.GetQuestions();
+            return questions;
+        }
+
+        public static List<Question> GetQuestionsFromUser(int userId)
+        {
+            List<Question> questions = App.DBRepository.GetQuestionsFromUser(userId);
+            return questions;
+        }
+
+        public void AddOrUpdateQuestion()
+        {
+            App.DBRepository.AddOrUpdateQuestion(this);
+        }
+
+        public void DeleteQuestion()
+        {
+            App.DBRepository.DeleteQuestion(this);
         }
     }
 }

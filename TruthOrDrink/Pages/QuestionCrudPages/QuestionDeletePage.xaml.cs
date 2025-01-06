@@ -24,7 +24,7 @@ public partial class QuestionDeletePage : ContentPage
     //logica van database nog nodig
 	public void DeleteButton_Clicked(object sender, EventArgs e)
     {
-        App.DBRepository.DeleteQuestion(SelectedQuestion);
+        SelectedQuestion.DeleteQuestion();
         Navigation.PopAsync();
     }
 }

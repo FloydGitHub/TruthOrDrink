@@ -18,7 +18,7 @@ public partial class EndOfTheGamePage : ContentPage
     }
     private void BackToMainMenuButton_Clicked(object sender, EventArgs e)
     {
-        App.DBRepository.DeleteGame(CurrentGame);
+        CurrentGame.DeleteGame();
         CurrentGame = null;
         Navigation.PushAsync(new HomePage(CurrentUser));
 

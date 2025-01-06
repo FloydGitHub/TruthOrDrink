@@ -37,7 +37,7 @@ public partial class RegisterPage : ContentPage
                 Username = UsernameEntry.Text,
                 Password = PasswordEntry.Text
             };
-            App.DBRepository.AddOrUpdateUser(newUser);
+            newUser.AddOrUpdateUser();
             Navigation.PopAsync();
         }
     }

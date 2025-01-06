@@ -72,8 +72,7 @@ namespace TruthOrDrink.Models
             Question.FillStandardQuestion();
 
 
-            DBRepository dBRepository = new DBRepository();
-            List<Question> questions = dBRepository.GetQuestions();
+            List<Question> questions = Question.GetQuestions();
             //Standaard/Custom filter
             questions = questions.Where(q =>
                 (q.CustomQuestion && CustomQuestionsAllowed) ||
@@ -105,6 +104,20 @@ namespace TruthOrDrink.Models
         public void SetStartingMoment()
         {
             StartingMoment = DateTime.Now;
+        }
+
+        public void AddorUpdateGame()
+        {
+            App.DBRepository.AddorUpdateGame(this);
+        }
+
+        public void DeleteGame()
+        {
+            App.DBRepository.DeleteGame(this);
+        }
+        public static List<Game> GetGamesFromUser(User user)
+        {
+            return App.DBRepository.GetGamesFromUser(user);
         }
     }
 }

@@ -17,7 +17,9 @@ namespace TruthOrDrink
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
-            builder.Services.AddSingleton<DBRepository>();
+            builder.Services.AddSingleton<UserRepository>();
+            builder.Services.AddSingleton<GameRepository>();
+            builder.Services.AddSingleton<QuestionRepository>();
 #if DEBUG
     		builder.Logging.AddDebug();
 #endif

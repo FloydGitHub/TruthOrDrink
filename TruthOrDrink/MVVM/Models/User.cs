@@ -26,19 +26,19 @@ namespace TruthOrDrink.Models
 
         public static User GetUser(string username, string password)
         {
-            User user = App.DBRepository.GetUser(username, password);
+            User user = App.UserRepo.GetUser(username, password);
             return user;
         }
 
         public static User? GetLoggedInUser()
         {
-            User? user = App.DBRepository.GetLoggedInUser();
+            User? user = App.UserRepo.GetLoggedInUser();
             return user;
         }
 
         public void AddOrUpdateUser()
         {
-            App.DBRepository.AddOrUpdateUser(this);
+            App.UserRepo.AddOrUpdateUser(this);
         }
 
     }

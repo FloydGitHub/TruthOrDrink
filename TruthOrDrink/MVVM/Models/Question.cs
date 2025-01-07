@@ -115,24 +115,24 @@ namespace TruthOrDrink.Models
         }
         public static List<Question> GetQuestions()
         {
-            List<Question> questions = App.DBRepository.GetQuestions();
+            List<Question> questions = App.QuestionRepo.GetQuestions();
             return questions;
         }
 
         public static List<Question> GetQuestionsFromUser(int userId)
         {
-            List<Question> questions = App.DBRepository.GetQuestionsFromUser(userId);
+            List<Question> questions = App.QuestionRepo.GetQuestionsFromUser(userId);
             return questions;
         }
 
         public void AddOrUpdateQuestion()
         {
-            App.DBRepository.AddOrUpdateQuestion(this);
+            App.QuestionRepo.AddOrUpdateQuestion(this);
         }
 
         public void DeleteQuestion()
         {
-            App.DBRepository.DeleteQuestion(this);
+            App.QuestionRepo.DeleteQuestion(this);
         }
     }
 }

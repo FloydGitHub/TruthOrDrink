@@ -108,16 +108,16 @@ namespace TruthOrDrink.Models
 
         public void AddorUpdateGame()
         {
-            App.DBRepository.AddorUpdateGame(this);
+            App.GameRepo.AddorUpdateGame(this);
         }
 
         public void DeleteGame()
         {
-            App.DBRepository.DeleteGame(this);
+            App.GameRepo.DeleteGame(this);
         }
         public static List<Game> GetGamesFromUser(User user)
         {
-            return App.DBRepository.GetGamesFromUser(user);
+            return App.GameRepo.GetGamesFromUser(user);
         }
     }
 }

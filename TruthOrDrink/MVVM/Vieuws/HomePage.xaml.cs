@@ -1,7 +1,10 @@
+using CommunityToolkit.Maui.Core.Platform;
+using CommunityToolkit.Maui.Core;
 using TruthOrDrink.APIinfo;
 using TruthOrDrink.APIInfo;
 using TruthOrDrink.Models;
 using TruthOrDrink.Pages.BreweryPages;
+using CommunityToolkit.Maui.Behaviors;
 
 namespace TruthOrDrink;
 
@@ -12,6 +15,12 @@ public partial class HomePage : ContentPage
     {
         CurrentUser = currenterUser;
         InitializeComponent();
+        this.Behaviors.Add(new StatusBarBehavior
+        {
+            StatusBarColor = Colors.Red,
+            StatusBarStyle = StatusBarStyle.LightContent
+        });
+
         string WelcomeMessage = $"Welkom {CurrentUser.Username}";
         Welcome_Label.Text = WelcomeMessage;
 

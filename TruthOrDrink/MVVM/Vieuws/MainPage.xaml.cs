@@ -1,5 +1,6 @@
 ﻿using TruthOrDrink.Models;
 using TruthOrDrink.Pages;
+using CommunityToolkit.Maui.Core;
 
 namespace TruthOrDrink
 {
@@ -11,7 +12,7 @@ namespace TruthOrDrink
         {
             InitializeComponent();
             StatusBar.StatusBarColor = Colors.Red;
-            StatusBar.StatusBarStyle = CommunityToolkit.Maui.Core.StatusBarStyle.LightContent;
+            StatusBar.StatusBarStyle = StatusBarStyle.LightContent;
             User? LoggedInUser = User.GetLoggedInUser();
             if (LoggedInUser != null)
             {

@@ -6,11 +6,13 @@ using TruthOrDrink.MVVM;
 using TruthOrDrink.Pages.BreweryPages;
 
 
+
 namespace TruthOrDrink;
 
 public partial class QuestionIndexPage : ContentPage
 {
     public User CurrentUser { get; set; }
+    public QuestionIndexViewModel ViewModel { get; set; }
 
     public QuestionIndexPage(User currentUser)
     {
@@ -18,17 +20,7 @@ public partial class QuestionIndexPage : ContentPage
         CurrentUser = currentUser;
         var viewModel = (QuestionIndexViewModel)BindingContext;
         viewModel.CurrentUser = currentUser;
-    }
-
-    protected override void OnAppearing()
-    {
-        base.OnAppearing();
-
-        // Laad de vragen opnieuw wanneer de pagina verschijnt
-        if (BindingContext is QuestionIndexViewModel viewModel)
-        {
-            viewModel.LoadQuestions();
-        }
+        ViewModel = viewModel;
     }
 
 
@@ -39,7 +31,7 @@ public partial class QuestionIndexPage : ContentPage
         if (button?.CommandParameter is Question selectedQuestion)
         {
 
-            Navigation.PushAsync(new QuestionEditPage(selectedQuestion, CurrentUser));
+            Navigation.PushAsync(new QuestionEditPage(selectedQuestion, CurrentUser, ViewModel));
         }
     }
 
@@ -49,7 +41,7 @@ public partial class QuestionIndexPage : ContentPage
         if (button?.CommandParameter is Question selectedQuestion)
         {
 
-            Navigation.PushAsync(new QuestionDeletePage (selectedQuestion, CurrentUser));
+            Navigation.PushAsync(new QuestionDeletePage (selectedQuestion, CurrentUser, ViewModel));
         }
     }
 

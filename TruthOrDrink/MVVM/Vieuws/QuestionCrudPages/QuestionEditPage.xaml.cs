@@ -1,17 +1,21 @@
+using AndroidX.Lifecycle;
 using TruthOrDrink.Models;
+using TruthOrDrink.MVVM.VieuwModels;
 
 namespace TruthOrDrink.Pages.QuestionCrudPages;
 
 public partial class QuestionEditPage : ContentPage
 {
-    private Question selectedQuestion;
+    private Question SelectedQuestion;
     public User CurrentUser { get; set; }
-    public QuestionEditPage(Question question, User currentUser)
+    public QuestionIndexViewModel ViewModelToEdit { get; set; }
+    public QuestionEditPage(Question question, User currentUser, QuestionIndexViewModel viewModel)
     {
         InitializeComponent();
-        selectedQuestion = question;
-        QuestionEntry.Text = selectedQuestion.Text;
+        SelectedQuestion = question;
+        QuestionEntry.Text = SelectedQuestion.Text;
         CurrentUser = currentUser;
+        ViewModelToEdit = viewModel;
     }
 
     public void BackButton_Clicked(object sender, EventArgs e)
@@ -25,8 +29,9 @@ public partial class QuestionEditPage : ContentPage
         {
             return;
         }
-        selectedQuestion.Text = QuestionEntry.Text;
-        selectedQuestion.Level = LevelPicker.SelectedIndex + 1;
+        int indexToEdit = ViewModelToEdit._questions.IndexOf(SelectedQuestion);
+        SelectedQuestion.Text = QuestionEntry.Text;
+        SelectedQuestion.Level = LevelPicker.SelectedIndex + 1;
         List<Category> categories = Category.GetCategories();
         Category? chosenCategory = null;
         if (CategoryPicker.SelectedIndex == 0)
@@ -41,9 +46,10 @@ public partial class QuestionEditPage : ContentPage
         {
             chosenCategory = categories[2];
         }
-        selectedQuestion.Category = chosenCategory;
-        selectedQuestion.CategoryId = chosenCategory.Id;
-        selectedQuestion.AddOrUpdateQuestion();
+        SelectedQuestion.Category = chosenCategory;
+        SelectedQuestion.CategoryId = chosenCategory.Id;
+        SelectedQuestion.AddOrUpdateQuestion();
+        ViewModelToEdit._questions[indexToEdit] = SelectedQuestion;
         Navigation.PopAsync();
     }
 }

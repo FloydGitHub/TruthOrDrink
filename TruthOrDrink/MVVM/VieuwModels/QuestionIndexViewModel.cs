@@ -42,7 +42,7 @@ namespace TruthOrDrink.MVVM.VieuwModels
 
         public Command CreateQuestionCommand { get; }
         public Command BackCommand { get; }
-
+         
         public QuestionIndexViewModel()
         {
             Questions = new ObservableCollection<Question>();
@@ -66,7 +66,7 @@ namespace TruthOrDrink.MVVM.VieuwModels
         public void CreateQuestion()
         {
             // Navigatie naar de createpagina
-            App.Current.MainPage.Navigation.PushAsync(new QuestionCreatePage(CurrentUser));
+            App.Current.MainPage.Navigation.PushAsync(new QuestionCreatePage(CurrentUser, this));
         }
 
         public void GoBack()
@@ -77,7 +77,7 @@ namespace TruthOrDrink.MVVM.VieuwModels
 
         protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName)); 
         }
     }
 }

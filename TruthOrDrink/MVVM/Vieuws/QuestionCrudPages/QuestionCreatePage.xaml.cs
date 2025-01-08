@@ -1,14 +1,17 @@
 using TruthOrDrink.Models;
+using TruthOrDrink.MVVM.VieuwModels;
 
 namespace TruthOrDrink;
 
 public partial class QuestionCreatePage : ContentPage
 {
-    User CurrentUser { get; set; }
-    public QuestionCreatePage(User currentUser)
+    public User CurrentUser { get; set; }
+    public QuestionIndexViewModel ViewModel { get; set; }
+    public QuestionCreatePage(User currentUser, QuestionIndexViewModel viewModel)
     {
         InitializeComponent();
         CurrentUser = currentUser;
+        ViewModel = viewModel;
     }
 
     public void BackButton_Clicked(object sender, EventArgs e)
@@ -48,6 +51,7 @@ public partial class QuestionCreatePage : ContentPage
             PhotoQuestion = false,
         };
         newQuestion.AddOrUpdateQuestion();
+        ViewModel._questions.Add(newQuestion);
         Navigation.PopAsync();
     }
 }

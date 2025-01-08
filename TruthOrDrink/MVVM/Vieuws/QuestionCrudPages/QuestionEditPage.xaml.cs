@@ -1,4 +1,3 @@
-using AndroidX.Lifecycle;
 using TruthOrDrink.Models;
 using TruthOrDrink.MVVM.VieuwModels;
 

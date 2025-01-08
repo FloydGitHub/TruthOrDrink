@@ -1,56 +1,56 @@
 using TruthOrDrink.Models;
 using TruthOrDrink.Pages.QuestionCrudPages;
 using static System.Net.Mime.MediaTypeNames;
+using TruthOrDrink.MVVM.VieuwModels;
+using TruthOrDrink.MVVM;
+using TruthOrDrink.Pages.BreweryPages;
+
 
 namespace TruthOrDrink;
 
 public partial class QuestionIndexPage : ContentPage
 {
     public User CurrentUser { get; set; }
+
     public QuestionIndexPage(User currentUser)
     {
         InitializeComponent();
         CurrentUser = currentUser;
-        List<Question> questionsFromUser = Question.GetQuestionsFromUser(CurrentUser.Id);
+        var viewModel = (QuestionIndexViewModel)BindingContext;
+        viewModel.CurrentUser = currentUser;
+    }
 
-        QuestionsCollectionView.ItemsSource = questionsFromUser;
-    }
-    private void BackButton_Clicked(object sender, EventArgs e)
+    protected override void OnAppearing()
     {
-        Navigation.PopAsync();
+        base.OnAppearing();
+
+        // Laad de vragen opnieuw wanneer de pagina verschijnt
+        var viewModel = (QuestionIndexViewModel)BindingContext;
+        viewModel.CurrentUser = CurrentUser;
+        viewModel.LoadQuestions();
     }
-    private void CreateQuestionPageButton_Clicked(object sender, EventArgs e)
-    {
-        Navigation.PushAsync(new QuestionCreatePage(CurrentUser));
-    }
-    private void DeleteQuestionButton_Clicked(object sender, EventArgs e)
-    {
-        var button = sender as Button;
-        if (button?.CommandParameter is Question selectedQuestion)
-        {
-            Navigation.PushAsync(new QuestionDeletePage(selectedQuestion, CurrentUser));
-        }
-    }
-    private void EditQuestionButton_Clicked(object sender, EventArgs e)
+
+
+    private void EditButtonClicked(object sender, EventArgs e)
     {
         // Retrieve the question object from CommandParameter
         var button = sender as Button;
         if (button?.CommandParameter is Question selectedQuestion)
         {
-            
+
             Navigation.PushAsync(new QuestionEditPage(selectedQuestion, CurrentUser));
         }
     }
-    protected override void OnAppearing()
+
+    private void DeleteQuestionButton(object sender, EventArgs e)
     {
-        base.OnAppearing();
+        var button = sender as Button;
+        if (button?.CommandParameter is Question selectedQuestion)
+        {
 
-        // Haal de meest recente data op van de gebruiker uit de database
-        List<Question> questionsFromUser = Question.GetQuestionsFromUser(CurrentUser.Id);
-
-        // Update de ItemsSource van de CollectionView
-        QuestionsCollectionView.ItemsSource = questionsFromUser;
+            Navigation.PushAsync(new QuestionDeletePage (selectedQuestion, CurrentUser));
+        }
     }
 
-
 }
+

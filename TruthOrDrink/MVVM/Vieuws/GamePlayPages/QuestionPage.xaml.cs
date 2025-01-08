@@ -12,9 +12,6 @@ public partial class QuestionPage : ContentPage
     // guvenQuestion en pickedPlayer worden alleen gebruikt nadat een twistcard is gespeeld.
     public QuestionPage(Game game, User currentUser, Question? givenQuestion = null, Player? pickedPlayer = null)
     {
-
-
-
         CurrentUser = currentUser;
             
         InitializeComponent();
@@ -153,13 +150,13 @@ public partial class QuestionPage : ContentPage
 
                 if (photo != null)
                 {
-                    // Sla de foto op in een lokaal bestand
                     var stream = await photo.OpenReadAsync();
-                    var filePath = Path.Combine(FileSystem.AppDataDirectory, photo.FileName);
 
-                    using var fileStream = File.OpenWrite(filePath);
-                    await stream.CopyToAsync(fileStream);
+                    // Zet de stream om naar een ImageSource om weer te geven
+                    var imageSource = ImageSource.FromStream(() => stream);
 
+                    MadeImage.IsVisible = true;
+                    MadeImage.Source = imageSource;
                 }
             }
             else

@@ -25,9 +25,10 @@ public partial class QuestionIndexPage : ContentPage
         base.OnAppearing();
 
         // Laad de vragen opnieuw wanneer de pagina verschijnt
-        var viewModel = (QuestionIndexViewModel)BindingContext;
-        viewModel.CurrentUser = CurrentUser;
-        viewModel.LoadQuestions();
+        if (BindingContext is QuestionIndexViewModel viewModel)
+        {
+            viewModel.LoadQuestions();
+        }
     }
 
 

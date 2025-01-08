@@ -31,7 +31,7 @@ public partial class QuestionIndexPage : ContentPage
         if (button?.CommandParameter is Question selectedQuestion)
         {
 
-            Navigation.PushAsync(new QuestionEditPage(selectedQuestion, CurrentUser, ViewModel));
+            Navigation.PushAsync(new QuestionEditPage(selectedQuestion, ViewModel));
         }
     }
 
@@ -41,7 +41,7 @@ public partial class QuestionIndexPage : ContentPage
         if (button?.CommandParameter is Question selectedQuestion)
         {
 
-            Navigation.PushAsync(new QuestionDeletePage (selectedQuestion, CurrentUser, ViewModel));
+            Navigation.PushAsync(new QuestionDeletePage (selectedQuestion, ViewModel));
         }
     }
 

@@ -6,14 +6,12 @@ namespace TruthOrDrink.Pages.QuestionCrudPages;
 public partial class QuestionEditPage : ContentPage
 {
     private Question SelectedQuestion;
-    public User CurrentUser { get; set; }
     public QuestionIndexViewModel ViewModelToEdit { get; set; }
-    public QuestionEditPage(Question question, User currentUser, QuestionIndexViewModel viewModel)
+    public QuestionEditPage(Question question, QuestionIndexViewModel viewModel)
     {
         InitializeComponent();
         SelectedQuestion = question;
         QuestionEntry.Text = SelectedQuestion.Text;
-        CurrentUser = currentUser;
         ViewModelToEdit = viewModel;
     }
 

@@ -66,7 +66,7 @@ namespace TruthOrDrink.MVVM.VieuwModels
         public void CreateQuestion()
         {
             // Navigatie naar de createpagina
-            App.Current.MainPage.Navigation.PushAsync(new QuestionCreatePage(CurrentUser, this));
+            App.Current.MainPage.Navigation.PushAsync(new QuestionCreatePage(this));
         }
 
         public void GoBack()

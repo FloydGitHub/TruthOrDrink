@@ -5,12 +5,10 @@ namespace TruthOrDrink;
 
 public partial class QuestionCreatePage : ContentPage
 {
-    public User CurrentUser { get; set; }
     public QuestionIndexViewModel ViewModel { get; set; }
-    public QuestionCreatePage(User currentUser, QuestionIndexViewModel viewModel)
+    public QuestionCreatePage(QuestionIndexViewModel viewModel)
     {
         InitializeComponent();
-        CurrentUser = currentUser;
         ViewModel = viewModel;
     }
 
@@ -45,7 +43,7 @@ public partial class QuestionCreatePage : ContentPage
             Text = QuestionEntry.Text,
             Category = chosenCategory,
             CategoryId = chosenCategory.Id,
-            CreatorId = CurrentUser.Id,
+            CreatorId = ViewModel.CurrentUser.Id,
             Level = LevelPicker.SelectedIndex + 1,
             CustomQuestion = true,
             PhotoQuestion = false,

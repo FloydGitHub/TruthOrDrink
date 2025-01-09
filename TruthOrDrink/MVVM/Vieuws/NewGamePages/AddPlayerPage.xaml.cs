@@ -37,7 +37,7 @@ public partial class AddPlayerPage : ContentPage
     {
         if (Players.Count < 2)
         {
-            PlayerNameEntry.Placeholder = "Voeg minimaal 1 extra speler toe";
+            DisplayAlert("Foutmelding", "Voeg minimaal 1 extra speler toe.", "Ok");
             return;
         }
         NewGame.SetPlayers(Players);

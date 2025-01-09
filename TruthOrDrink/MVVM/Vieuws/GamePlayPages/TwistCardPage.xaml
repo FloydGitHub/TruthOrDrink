@@ -29,7 +29,7 @@
                                     TextColor="Black" 
                                     CommandParameter="{Binding}" 
                                     Clicked="PlayerButton_Clicked"
-                                    Margin="40"/>
+                                    Margin="20"/>
                     </Frame>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
@@ -38,6 +38,7 @@
         <Button
             x:Name="BackButton"
             Text="Terug"
+            Margin="20"
             VerticalOptions="Center" 
             HorizontalOptions="Center"
             Clicked="BackButton_Clicked">

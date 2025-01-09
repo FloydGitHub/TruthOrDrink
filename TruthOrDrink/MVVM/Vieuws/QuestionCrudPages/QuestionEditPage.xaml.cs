@@ -26,7 +26,7 @@ public partial class QuestionEditPage : ContentPage
         {
             return;
         }
-        int indexToEdit = ViewModelToEdit._questions.IndexOf(SelectedQuestion);
+        int indexToEdit = ViewModelToEdit.Questions.IndexOf(SelectedQuestion);
         SelectedQuestion.Text = QuestionEntry.Text;
         SelectedQuestion.Level = LevelPicker.SelectedIndex + 1;
         List<Category> categories = Category.GetCategories();
@@ -46,7 +46,7 @@ public partial class QuestionEditPage : ContentPage
         SelectedQuestion.Category = chosenCategory;
         SelectedQuestion.CategoryId = chosenCategory.Id;
         SelectedQuestion.AddOrUpdateQuestion();
-        ViewModelToEdit._questions[indexToEdit] = SelectedQuestion;
+        ViewModelToEdit.Questions[indexToEdit] = SelectedQuestion;
         Navigation.PopAsync();
     }
 }

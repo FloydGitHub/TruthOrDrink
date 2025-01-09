@@ -26,7 +26,7 @@ public partial class QuestionDeletePage : ContentPage
 	public void DeleteButton_Clicked(object sender, EventArgs e)
     {
         SelectedQuestion.DeleteQuestion();
-        ViewModel._questions.Remove(SelectedQuestion);
+        ViewModel.Questions.Remove(SelectedQuestion);
         Navigation.PopAsync();
     }
 }

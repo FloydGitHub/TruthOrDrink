@@ -49,7 +49,7 @@ public partial class QuestionCreatePage : ContentPage
             PhotoQuestion = false,
         };
         newQuestion.AddOrUpdateQuestion();
-        ViewModel._questions.Add(newQuestion);
+        ViewModel.Questions.Add(newQuestion);
         Navigation.PopAsync();
     }
 }

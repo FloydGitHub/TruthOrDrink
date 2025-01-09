@@ -15,7 +15,7 @@ namespace TruthOrDrink.MVVM.VieuwModels
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public User _currentUser;
+        private User _currentUser;
         public User CurrentUser
         {
             get => _currentUser;
@@ -28,7 +28,7 @@ namespace TruthOrDrink.MVVM.VieuwModels
             }
         }
 
-        public ObservableCollection<Question> _questions;
+        private ObservableCollection<Question> _questions;
         public ObservableCollection<Question> Questions
         {
             get => _questions;

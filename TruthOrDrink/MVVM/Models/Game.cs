@@ -59,7 +59,7 @@ namespace TruthOrDrink.Models
         }
         public void UpdatePlayerScore(Player playerToUpdate)
         {
-            Players.Remove(Players.FirstOrDefault(p => p.Id == playerToUpdate.Id));
+            Players.Remove(Players.FirstOrDefault(p => p.Name == playerToUpdate.Name));
             Players.Add(playerToUpdate);
         }
 

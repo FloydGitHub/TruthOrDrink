@@ -52,12 +52,21 @@ public partial class AddPlayerPage : ContentPage
     }
     private void AddPlayerButton_Clicked(object sender, EventArgs e)
     {
-        if (string.IsNullOrEmpty(PlayerNameEntry.Text))
+        string newPlayerName = PlayerNameEntry.Text;
+
+        bool isNameAlreadyUsed = Players.Any(player => player.Name == newPlayerName);
+
+        if (isNameAlreadyUsed)
+        {
+            DisplayAlert("Foutmelding", "Je mag niet 2 keer dezelfde naam in een spel gebruiken", "Ok");
+            return;
+        }
+        else if (string.IsNullOrEmpty(newPlayerName))
         {
             PlayerNameEntry.Placeholder = "Naam mag niet leeg zijn";
             return;
         }
-        else if (PlayerNameEntry.Text.Length > 20)
+        else if (newPlayerName.Length > 20)
         {
             PlayerNameEntry.Text = "";
             PlayerNameEntry.Placeholder = "Naam mag niet langer zijn dan 20 karakters";
@@ -67,7 +76,7 @@ public partial class AddPlayerPage : ContentPage
         {
             Player player = new Player
             {
-                Name = PlayerNameEntry.Text,
+                Name = newPlayerName,
                 IsHost = false,
                 Answers = 0,
                 Drinks = 0,
@@ -115,6 +124,14 @@ public partial class AddPlayerPage : ContentPage
             { return; }
 
             string givenName = contact.GivenName;
+
+            bool isNameAlreadyUsed = Players.Any(player => player.Name == givenName);
+
+            if (isNameAlreadyUsed)
+            {
+                DisplayAlert("Foutmelding", "Je mag niet 2 keer dezelfde naam in een spel gebruiken", "Ok");
+                return;
+            }
             if (string.IsNullOrEmpty(givenName))
             {
                 DisplayAlert("Error", "De naam van het contact mag niet leeg zijn", "OK");

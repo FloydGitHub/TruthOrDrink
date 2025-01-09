@@ -16,7 +16,7 @@ public partial class TwistCardPage : ContentPage
         CurrentGame = currentGame;
         QuestionToRedirect = questionToRedirect;
         TwistCardUser = twistCardUser;
-        ICollection<Player> playersToRedirect = currentGame.Players;
+        List<Player> playersToRedirect = currentGame.Players.ToList();
         Player playerToRemove = playersToRedirect.FirstOrDefault(player => player.Id == twistCardUser.Id);
         if (playerToRemove != null)
         {
